@@ -4,7 +4,7 @@
 2. The user wants to run a Masternode at home, although a VPS can assure consistent online time.
 
 ## Prerequisites
-1. The [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
+1. The [preparation steps](/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
 2. Knowledge about port forwarding rules on own router (or how to enable UPnP support).
 3. The workstation/home server must have static lan ip address
 4. Any security software (such as anti-virus or anti-malware programs) must not limit/lock deviant-qt.exe.
@@ -55,7 +55,7 @@ Open file masternode.conf<br />
 Add these lines:<br />
 ```{MN ALIAS} {YOUR PUBLIC IP}:22618 {MN PRIV KEY} {MN TX-iD} {TX-ID IDX}```<br />
 using the proper values instead the generic {PARAMETER}.
-In [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md) it is explained how to get most of them.<br />
+In [preparation steps](/common/Preparation-steps-for-MN.md) it is explained how to get most of them.<br />
 The ones not found there, are explained in here.<br />
 Restart your wallet to apply new conf files.
 
