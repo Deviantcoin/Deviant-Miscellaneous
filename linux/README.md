@@ -12,7 +12,7 @@ To execute the script you can use such commands:
 1. ```wget https://raw.githubusercontent.com/ScaMar/Deviant-Masternode/master/linux/masternode_setup.sh```
 2. ```bash masternode_setup.sh```
 
-Check [Masternode Setup](https://github.com/ScaMar/Deviant-Masternode/blob/master/linux/Masternode_setup.md) guide for explanations and sample execution.
+Check [Masternode Setup](/linux/Masternode_setup.md) guide for explanations and sample execution.
 
 ## Guide: masternode_setup.md<br />
 This guide covers the point:<br />
