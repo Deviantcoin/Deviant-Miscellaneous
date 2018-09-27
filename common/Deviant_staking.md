@@ -58,6 +58,7 @@ Step | On screen
 ---- | ---------
 Open the menu | ![menu unlock](/images/unlock-wallet-menu.png)
 Enter passhphrase | ![enter passphrase](/images/unlock-wallet-password.png)
-Verify | ![verify unlock](/images/unlock-wallet-verify.png)
+Verify Lock/Unlock | ![verify unlock](/images/unlock-wallet-verify.png)
+Verify Staking status | ![verify staking](/images/staking-icon.png)
 
 
