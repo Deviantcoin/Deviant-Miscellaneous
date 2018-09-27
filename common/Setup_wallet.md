@@ -70,7 +70,48 @@ Enter passhphrase | ![enter passphrase](/images/passphrase-encrypt-wallet.png)
 Confirm | ![confirm encryption](/images/confirm-encrypt-wallet.png)
 Read warning info! | ![warning](/images/warning-encrypt-wallet.png)
 
-## Setup Cli wallet on Linux
+## Setup Cli wallet Linux
+### Identify your architecture
+The precompiled Deviant cli wallet can run on several kind of Linux.
+To identify the architecture of your operating system execute the command:<br />
+`uname -m`<br />
+### Download the wallet
+It the previous output fits a line above, the wallet you need, it is available as precompiled package.
+
+ Output | Wallet 
+ ------ | ------ 
+ x86_64 | [dev-3.0.0.1-linux-x86_64.zip](https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-x86_64.zip) 
+ armv7l | [dev-3.0.0.1-linux-arm32.zip](https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm32.zip)
+ aarch64 | [dev-3.0.0.1-linux-arm64.zip](https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm64.zip)
+ 
+ You can use the utility `wget` to download the wallet.<br />
+ 
+ Output | Command
+ ------ | -------
+armv7l | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm32.zip`
+aarch64 | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm64.zip`
+x86_64 | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-x86_64.zip`
+ 
+ ### Install the wallet
+ You need the unzip utility to extract the wallet.
+ 
+Distro | Command
+------ | -------
+Ubuntu/Debian | `sudo apt -y install unzip`
+Fedora/Centos | `sudo yum -y install unzip`
+
+ Output | Command
+ ------ | -------
+ armv7l | `unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin`
+ aarch64 | `unzip -o -j dev-3.0.0.1-linux-arm64.zip *deviantd *deviant-cli -d /usr/local/bin`
+ x86_64 | `unzip -o -j dev-3.0.0.1-linux-x86_64.zip *deviantd *deviant-cli -d /usr/local/bin`
+
+Following, a sample taken on raspberry 3
+
+ 
+ 
+ 
+
 
 
 
