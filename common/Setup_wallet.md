@@ -70,7 +70,87 @@ Enter passhphrase | ![enter passphrase](/images/passphrase-encrypt-wallet.png)
 Confirm | ![confirm encryption](/images/confirm-encrypt-wallet.png)
 Read warning info! | ![warning](/images/warning-encrypt-wallet.png)
 
-## Setup Cli wallet on Linux
+## Setup Cli wallet Linux
+### Identify your architecture
+The precompiled Deviant cli wallet can run on several kind of Linux.
+To identify the architecture of your operating system execute the command:<br />
+`uname -m`<br />
+### Download the wallet
+It the previous output fits a line above, the wallet you need, it is available as precompiled package.
+
+ Output | Wallet 
+ ------ | ------ 
+ x86_64 | [dev-3.0.0.1-linux-x86_64.zip](https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-x86_64.zip) 
+ armv7l | [dev-3.0.0.1-linux-arm32.zip](https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm32.zip)
+ aarch64 | [dev-3.0.0.1-linux-arm64.zip](https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm64.zip)
+ 
+ You can use the utility `wget` to download the wallet.<br />
+ 
+ Output | Command
+ ------ | -------
+armv7l | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm32.zip`
+aarch64 | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm64.zip`
+x86_64 | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-x86_64.zip`
+
+example: ![cli wallet download](/common/cli-download.png)
+
+ ### Install the wallet
+ You need the unzip utility to extract the wallet.
+ 
+Distro | Command
+------ | -------
+Ubuntu/Debian | `sudo apt -y install unzip`
+Fedora/Centos | `sudo yum -y install unzip`
+
+ Output | Command
+ ------ | -------
+ armv7l | `sudo unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin`
+ aarch64 | `sudo unzip -o -j dev-3.0.0.1-linux-arm64.zip *deviantd *deviant-cli -d /usr/local/bin`
+ x86_64 | `sudo unzip -o -j dev-3.0.0.1-linux-x86_64.zip *deviantd *deviant-cli -d /usr/local/bin`
+
+
+
+
+On arm architecture it is possible the deviantd daemon will end in error:
+`Segmentation fault`
+
+In such case you need to compile the wallet yourself.
+Following the instructions:<br />
+```
+sudo apt install git \
+ build-essential \
+ libtool \
+ autotools-dev \
+ automake \
+ pkg-config \
+ libssl-dev \
+ libevent-dev \
+ bsdmainutils \
+ libboost-system-dev \
+ libboost-filesystem-dev \
+ libboost-chrono-dev \
+ libboost-program-options-dev \
+ libboost-test-dev \
+ libboost-thread-dev \
+ libminiupnpc-dev \
+ libzmq3-dev \
+ jq
+mkdir db4
+cd db4 
+wget https://github.com/Deviantcoin/Deviant-Miscellaneous/raw/master/linux/install_db4.sh
+./install_db4.sh $(pwd)
+cd ..
+git clone https://github.com/Deviantcoin/Source.git
+chmod 755 -R Source/
+cd Source
+./autogen.sh
+./configure CXXFLAGS="--param ggc-min-expand=1 --param ggc-min-heapsize=32768" --enable-cxx --without-gui --disable-shared --with-pic --enable-upnp-default --with-unsupported-ssl
+make
+sudo make install
+```
+ 
+ 
+
 
 
 
