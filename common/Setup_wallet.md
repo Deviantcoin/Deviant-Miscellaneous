@@ -92,28 +92,91 @@ armv7l | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linu
 aarch64 | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm64.zip`
 x86_64 | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-x86_64.zip`
 
- ### Install the wallet
- You need the unzip utility to extract the wallet.
+### Install and run the wallet
+You need the unzip utility to extract the wallet.
  
 Distro | Command
 ------ | -------
 Ubuntu/Debian | `sudo apt -y install unzip`
 Fedora/Centos | `sudo yum -y install unzip`
 
- Output | Command
- ------ | -------
- armv7l | `sudo unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin`
- aarch64 | `sudo unzip -o -j dev-3.0.0.1-linux-arm64.zip *deviantd *deviant-cli -d /usr/local/bin`
- x86_64 | `sudo unzip -o -j dev-3.0.0.1-linux-x86_64.zip *deviantd *deviant-cli -d /usr/local/bin`
+Output | Command
+------ | -------
+armv7l | `sudo unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin`
+aarch64 | `sudo unzip -o -j dev-3.0.0.1-linux-arm64.zip *deviantd *deviant-cli -d /usr/local/bin`
+x86_64 | `sudo unzip -o -j dev-3.0.0.1-linux-x86_64.zip *deviantd *deviant-cli -d /usr/local/bin`
+ 
+So, in order to run a cli wallet you need (example for arm32):<br />
+```
+wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm32.zip
+sudo unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin
+deviantd
+```
+### Encrypting the wallet
+When the sync is finished, it is recommended to encrypt the wallet before transfering funds to it.<br />
+This action will enhance the security of your wallet, once the wallet is encrypted you need to unlock it before moving funds.
+To encrypt the wallet you use deviant-cli utility:
+```
+deviant-cli encryptwallet '<your passphrase>'
+```
+Tip: to avoid to save `'<your passphrase>'` in the history, press space before the commands that require `'<your passphrase>'`.
 
+Before you transfer funds, you must be aware about zeromint.
+Zeromint will mint DEVs into zDEVs. The CLI wallet have such feature enabled by default.
+If you don't need to mix DEVs into zDEV, to change the default behaviour you must set the parameter `enablezerocoin=0` in file `deviant.conf`.
 
+### Alternatives
+The default CLI wallets are built on recent software stack.
+If you use a distro built on older software stack, you may encounter errors like:<br />
+```
+Segmentation fault
+```
+```
+deviantd: /lib64/libstdc++.so.6: version 'GLIBCXX_3.4.20' not found (required by deviantd)
+deviantd: /lib64/libstdc++.so.6: version 'CXXABI_1.3.8' not found (required by deviantd)
+deviantd: /lib64/libstdc++.so.6: version 'GLIBCXX_3.4.21' not found (required by deviantd)
+```
+In this cases you can use an alternative CLI wallet that is built on older software stack.<br />
 
+Arch | Download | Install
+---- | -------- | -------
+armv7l | `wget https://github.com/Deviantcoin/Deviant-Miscellaneous/raw/work-in-progress/linux/alternatives/dev-3.0.0.1-linux-arm32-alternatives.zip` | `sudo unzip -o -j dev-3.0.0.1-linux-arm32-alternatives.zip *deviantd *deviant-cli -d /usr/local/bin`
+x86_64 | `wget https://github.com/Deviantcoin/Deviant-Miscellaneous/raw/work-in-progress/linux/alternatives/dev-3.0.0.1-linux-x86_64-alternatives.zip` | `sudo unzip -o -j dev-3.0.0.1-linux-x86_64-alternatives.zip *deviantd *deviant-cli -d /usr/local/bin`
 
+Another alternative is to compile the sources your own.
+Following the instruction for Debian/Ubuntu.<br />
+```
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt update
+sudo apt install git \
+ build-essential \
+ libtool \
+ autotools-dev \
+ automake \
+ pkg-config \
+ libssl-dev \
+ libevent-dev \
+ bsdmainutils \
+ libboost-system-dev \
+ libboost-filesystem-dev \
+ libboost-chrono-dev \
+ libboost-program-options-dev \
+ libboost-test-dev \
+ libboost-thread-dev \
+ libminiupnpc-dev \
+ libzmq3-dev \
+ libdb4.8-dev \
+ libdb4.8++-dev \
+ jq
+git clone https://github.com/Deviantcoin/Source.git
+chmod 755 -R Source/
+cd Source
+./autogen.sh
+./configure --without-gui --disable-tests
+make
+sudo make install
+```
 
-On arm architecture it is possible the deviantd daemon will end in error:
-`Segmentation fault`
-
-In such case you need to compile the wallet yourself.
 Following the instructions for Raspbian/Ubuntu:<br />
 ```
 sudo apt install git \
@@ -143,7 +206,9 @@ git clone https://github.com/Deviantcoin/Source.git
 chmod 755 -R Source/
 cd Source
 ./autogen.sh
-./configure CXXFLAGS="--param ggc-min-expand=1 --param ggc-min-heapsize=32768" --enable-cxx --without-gui --disable-shared --with-pic --enable-upnp-default --with-unsupported-ssl
+./configure CXXFLAGS="--param ggc-min-expand=1 --param ggc-min-heapsize=32768" \ 
+ --enable-cxx --without-gui --disable-shared --with-pic --enable-upnp-default \ 
+ --with-unsupported-ssl --disable-tests
 make
 sudo make install
 ```
