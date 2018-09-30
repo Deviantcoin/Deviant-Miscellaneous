@@ -6,7 +6,10 @@ Master node setup guides and scripts
 [Wallet - Setup wallet](/common/Setup_wallet.md)<br />
 1. [Setup QT wallet on Windows](/common/Setup_wallet.md#setup-qt-wallet-on-windows)<br />
 2. [Setup Cli wallet Linux](/common/Setup_wallet.md#setup-cli-wallet-linux)<br />
+
 [Wallet - Deviant Staking Guide](/common/Deviant_staking.md)<br />
+1. [QT wallet](/common/Deviant_staking.md#qt-wallet)<br />
+
 [Readme Linux](/linux/README.md)<br />
 [Deviant Masternode setup on Linux VPS](/linux/Masternode_setup.md)<br />
 [Readme Windows](/windows/README.md)<br />
