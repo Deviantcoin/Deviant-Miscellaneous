@@ -92,8 +92,6 @@ armv7l | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linu
 aarch64 | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm64.zip`
 x86_64 | `wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-x86_64.zip`
 
-example: ![cli wallet download](/common/cli-download.png)
-
  ### Install the wallet
  You need the unzip utility to extract the wallet.
  
@@ -111,11 +109,12 @@ Fedora/Centos | `sudo yum -y install unzip`
 
 
 
+
 On arm architecture it is possible the deviantd daemon will end in error:
 `Segmentation fault`
 
 In such case you need to compile the wallet yourself.
-Following the instructions:<br />
+Following the instructions for Raspbian/Ubuntu:<br />
 ```
 sudo apt install git \
  build-essential \
