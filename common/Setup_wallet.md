@@ -61,7 +61,7 @@ addnode=178.239.54.249
 ```
 ### Encrypting the wallet
 When the sync is finished, it is recommended to encrypt the wallet before transfering funds to it.<br />
-This action will enhance the security of your wallet, once the wallet is encrypted you need to unlock it before moving funds.
+This action will enhance the security of your wallet. Once the wallet is encrypted. you need to unlock it before moving funds.
 
 Step | On screen
 ---- | ---------
@@ -72,11 +72,11 @@ Read warning info! | ![warning](/images/warning-encrypt-wallet.png)
 
 ## Setup Cli wallet Linux
 ### Identify your architecture
-The precompiled Deviant cli wallet can run on several kind of Linux.
-To identify the architecture of your operating system execute the command:<br />
+The precompiled Deviant cli wallet can run on several kind of Linux builds.
+To identify the architecture of your operating system, execute the command:<br />
 `uname -m`<br />
 ### Download the wallet
-It the previous output fits a line above, the wallet you need, it is available as precompiled package.
+If the previous output fits a line above (the wallet you need), it is available as precompiled package.
 
  Output | Wallet 
  ------ | ------ 
@@ -112,28 +112,28 @@ wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm32.zi
 sudo unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin
 deviantd -printtoconsole
 ``` 
-The option "-printtoconsole" during first run is useful because you have a real time report on screen.<br />  
+The option "-printtoconsole" during the first run is useful because you have a real time report on screen.<br />  
 
-Tip: after first sync, to run the wallet in background you can execute it with command:<br />
+Tip: after the first sync, to run the wallet in background, you can execute it with command:<br />
 ```deviantd -daemon```
 
 ### Encrypting the wallet
 When the sync is finished, it is recommended to encrypt the wallet before transfering funds to it.<br />
-This action will enhance the security of your wallet, once the wallet is encrypted you need to unlock it before moving funds.
+This action will enhance the security of your wallet. Once the wallet is encrypted, you need to unlock it before moving funds.
 To encrypt the wallet you use deviant-cli utility:
 ```
 deviant-cli encryptwallet '<your passphrase>'
 ```
 Tip: to avoid to save `'<your passphrase>'` in the history, press space before the commands that require `'<your passphrase>'`.
-When wallet encrypting ends, the wallet will close itself, so you need to start it again.
+When wallet encryption ends, the wallet will close itself, so you will need to start it again.
 
 Before you transfer funds, you must be aware about zeromint.
-Zeromint will mint DEVs into zDEVs. The CLI wallet have such feature enabled by default.
-If you don't need to mix DEVs into zDEV, to change the default behaviour you must set the parameter `enablezerocoin=0` in file `deviant.conf`.
+Zeromint will mint DEVs into zDEVs. The CLI wallet has this feature enabled by default.
+If you don't need to mix DEVs into zDEV, to change the default behaviour, you must set the parameter `enablezerocoin=0` in file `deviant.conf`.
 
 ### Alternatives
 The default CLI wallets are built on recent software stack.
-If you use a distro built on older software stack, you may encounter errors like:<br />
+If you use a distro built on an older software stack, you may encounter errors like:<br />
 ```
 Segmentation fault
 ```
@@ -142,14 +142,14 @@ deviantd: /lib64/libstdc++.so.6: version 'GLIBCXX_3.4.20' not found (required by
 deviantd: /lib64/libstdc++.so.6: version 'CXXABI_1.3.8' not found (required by deviantd)
 deviantd: /lib64/libstdc++.so.6: version 'GLIBCXX_3.4.21' not found (required by deviantd)
 ```
-In this cases you can use an alternative CLI wallet that is built on older software stack.<br />
+In this case, you can use an alternative CLI wallet that is built on an older software stack.<br />
 
 Arch | Download | Install
 ---- | -------- | -------
 armv7l | `wget https://github.com/Deviantcoin/Deviant-Miscellaneous/raw/work-in-progress/linux/alternatives/dev-3.0.0.1-linux-arm32-alternatives.zip` | `sudo unzip -o -j dev-3.0.0.1-linux-arm32-alternatives.zip *deviantd *deviant-cli -d /usr/local/bin`
 x86_64 | `wget https://github.com/Deviantcoin/Deviant-Miscellaneous/raw/work-in-progress/linux/alternatives/dev-3.0.0.1-linux-x86_64-alternatives.zip` | `sudo unzip -o -j dev-3.0.0.1-linux-x86_64-alternatives.zip *deviantd *deviant-cli -d /usr/local/bin`
 
-Another alternative is to compile the sources your own.
+Another alternative is to compile the sources on your own.
 Following the instruction for Debian/Ubuntu.<br />
 ```
 sudo add-apt-repository ppa:bitcoin/bitcoin
