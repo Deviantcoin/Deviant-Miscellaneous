@@ -4,7 +4,7 @@
 
 ## Prerequisites
 1. The [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
-2. A Linux VPS is mandatory for this setup. Ubuntu 16.04 is the recommended one. Successful setup have been reported also on Ubuntu 18.04 and Centos 7
+2. A Linux VPS is mandatory for this setup. Ubuntu 16.04 is the recommended one. Successful setup have been reported also on Ubuntu 18.04.
 3. A client SSH for your Operating System. In this guide it will be [putty portable for win32](https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe). You can use Terminal on MacOS or gnome-terminal on Linux.
 3. On VPS you need `unzip` and `curl` utilities.
 
@@ -64,7 +64,7 @@ In this case the key generate during preparation steps has been used
 ## Daily update check
 In this step you can enable a daily check for updates. If you type "y", the script will create a directive in crontab.
 
-![check daily updates](/images/mn-firewall-disabled.png)
+![check daily updates](/images/mn-updates.png)
 
 ## Setup done
 After the private key step, the setup is finished.
