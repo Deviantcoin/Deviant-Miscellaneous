@@ -125,6 +125,7 @@ To encrypt the wallet you use deviant-cli utility:
 deviant-cli encryptwallet '<your passphrase>'
 ```
 Tip: to avoid to save `'<your passphrase>'` in the history, press space before the commands that require `'<your passphrase>'`.
+When wallet encrypting ends, the wallet will close itself, so you need to start it again.
 
 Before you transfer funds, you must be aware about zeromint.
 Zeromint will mint DEVs into zDEVs. The CLI wallet have such feature enabled by default.
