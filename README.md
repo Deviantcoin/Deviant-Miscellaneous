@@ -1,6 +1,6 @@
 ![logo](images/DEV-logo.png)
 # Deviant-Miscellaneous
-Master node setup guides and scripts
+Howto, setup guides and scripts
 
 [QT wallet - Preparation steps to run a Deviant Masternode](/common/Preparation-steps-for-MN.md)<br />
 
@@ -10,6 +10,7 @@ Master node setup guides and scripts
 
 [Wallet - Deviant Staking Guide](/common/Deviant_staking.md)<br />
 1. [QT wallet](/common/Deviant_staking.md#qt-wallet)<br />
+2. [CLI wallet](/common/Deviant_staking.md#cli-wallet-on-linux)<br />
 
 [Deviant Masternode setup on Linux VPS](/linux/Masternode_setup.md)<br />
 
