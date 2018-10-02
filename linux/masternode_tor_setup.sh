@@ -30,6 +30,13 @@ base64 -d <<<"H4sICGd9r1sCA0RldmlhbnQudHh0AI2OQQqAQAwD731FjgpCPiTEh+zjTbMqerPLlk
 sleep 3
 }
 
+function check_distro() {
+if [[ $(lsb_release -i) != *Ubuntu* ]]; then
+  echo -e "${RED}You are not running Ubuntu. This script is meant for Ubuntu.${NC}"
+  exit 1
+fi
+}
+
 function check_user() {
 if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}$0 must be run as root.${NC}"
@@ -367,6 +374,7 @@ function important_information() {
 
 function setup_node() {
   unset NODE_IPS
+  check_distro
   welcome
   check_user
   check_swap
