@@ -61,4 +61,58 @@ Enter passhphrase | ![enter passphrase](/images/unlock-wallet-password.png)
 Verify lock status | ![verify unlock](/images/unlock-wallet-verify.png)
 Verify staking status | ![verify staking](/images/staking-icon.png)
 
+## CLI wallet on linux
+### Prerequisites
+1. The wallet has been setup (verify [here](/common/Setup_wallet.md#setup-cli-wallet-linux))
+### Creating a Staking Address
+Create a new address with deviant-cli utility:<br />
+```deviant-cli getnewaddress "STAKE"```<br />
+The address will be shown in the standard output.
+![address stake](/images/cli-address-stake.png)
+If you need to check it, you can use the command:<br />
+```deviant-cli getaddressesbyaccount "STAKE"```<br />
+You will send your DEVs to STAKE account address. Keep always in mind that zDEV minting is enabled by default in CLI wallet. If you don't want to mix DEV into zDEV, add the parameter `enablezerocoin=0` in file `deviant.conf`.<br />
+for example with command:<br />
+```echo "enablezerocoin=0" >> $HOME/.DeviantCore/deviant.conf```<br />
+Or with your preferred text editor.
+Once funds have been transferred check them with:<br />
+```deviant-cli getbalance``` <br />
+To check confirmations number and other details you can fire:<br />
+```deviant-cli listunspent```
+![listunspent](images/cli-wallet-unspent1.png)
+### Split your DEV into stake inputs
+This step is optional and it depends on the amount you are staking.  
+There several ways to split the original input.
+The proper way to split UTXO (Unspent Transaction Output) is working with raw transactions.
+This way will not be discussed here:<br />
+1. This is a basic guide<br />
+2. The risk to lose coins is high if you have no experience with raw transactions.<br />
+
+There are other ways to split your balance in inputs:<br />
+1. Send coins to STAKE address with several transactions (each transaction is an input)
+2. Using a change address:<br />
+2.1. Unlock wallet for 10 minutes ` deviant-cli walletpassphrase '<your passphrase>' 600` <br />
+2.2. Move first input ```deviant-cli sendfrom "ACCOUNT" "toaddress" amount``` <br />
+2.3. Move other inputs (one at time), after you have identified your "change addess" with "listunspent", set an account.
+```deviant-cli setaccount "address" "account"```
+```deviant-cli sendfrom "ACCOUNT" "toaddress" amount```
+
+Example:
+
+Step | Example
+---- | -------
+2.1 | ![wallet unlock](/images/cli-wallet-unlock.png)
+2.2 | ![sendfrom1](/images/cli-sendfrom-account.png)
+2.3 | ![listunspent](/images/cli-list-unspent2.png)
+2.3 | ![setaccount](images/cli-set-account.png)
+2.3 | ![sendfrom2](/images/cli-send-others.png)
+
+There is not a formula to calculate the optimal size of inputs. It depends on the values staking on the network. Also optimal size is not a constant and it changes with time.<br />
+Sharing experience about staking with other users may improve the staking experience.
+### Start staking
+Unlock the wallet for staking:<br />
+```deviant-cli walletpassphrase '<your password>' 0 true``` <br />
+Check staking status with:<br />
+```deviant-cli getstakingstatus```
+
 
