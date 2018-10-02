@@ -67,8 +67,9 @@ Verify Staking status | ![verify staking](/images/staking-icon.png)
 ### Creating a Staking Address
 Create a new address with deviant-cli utility:<br />
 ```deviant-cli getnewaddress "STAKE"```<br />
-The address will be shown in the standard output.
+The address will be shown in the standard output.<br />
 ![address stake](/images/cli-address-stake.png)
+
 If you need to check it, you can use the command:<br />
 ```deviant-cli getaddressesbyaccount "STAKE"```<br />
 You will send your DEVs to STAKE account address. Keep always in mind that zDEV minting is enabled by default in CLI wallet. If you don't want to mix DEV into zDEV, add the parameter `enablezerocoin=0` in file `deviant.conf`.<br />
@@ -78,8 +79,8 @@ Or with your preferred text editor.
 Once funds have been transferred check them with:<br />
 ```deviant-cli getbalance``` <br />
 To check confirmations number and other details you can fire:<br />
-```deviant-cli listunspent```
-![listunspent](images/cli-wallet-unspent1.png)
+```deviant-cli listunspent``` <br />
+![listunspent](/images/cli-wallet-unspent1.png)
 ### Split your DEV into stake inputs
 This step is optional, in fact there is no proof that splitting helps the stakes. It is a practice for believers, says the most.  
 There are several ways to split the original input.
