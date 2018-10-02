@@ -64,7 +64,7 @@ In this case the key generate during preparation steps has been used
 ## Daily update check
 In this step you can enable a daily check for updates. If you type "y", the script will create a directive in crontab.
 
-![check daily updates](/images/mn-firewall-disabled.png)
+![check daily updates](/images/mn-updates.png)
 
 ## Setup done
 After the private key step, the setup is finished.
