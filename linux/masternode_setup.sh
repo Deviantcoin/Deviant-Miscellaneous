@@ -24,6 +24,34 @@ MAG='\e[1;35m'
 ## ToDO: function to install mandatory tools, like unzip and curl
 ## ToDo: warnign about missing bind parameter if a MN is already installed
 
+function update() {
+crontab -l | grep "$COIN_PATH/upd-deviant.sh"
+if [[ $? -ne 0 ]]
+ then echo -e "${GREEN}Do you want to setup a daily check for updates? (y/n)${NC}"
+ echo -e "${RED}y${GREEN} i want setup a daily check for updates"
+ echo -e "${RED}n${GREEN} no, i will check manually for updates${NC}"
+ read checkupdate
+ case $checkupdate in
+  y*)
+   ORA=$(echo $((1 + $RANDOM % 23)))
+   MIN=$(echo $((1 + $RANDOM % 59)))
+   base64 -d <<<"H4sICAPes1sAA3VwZC1kZXZpYW50LnNoAK1TW2/aMBR+z684zSLSbgou61pNm9IKQdiQykWBqaJVhUJiwGtip4kD7Pbfd0xCuEzwNOUh8YnPd76L/eaMTBgnEy+da8NOf9zq3Tcd1zbOoxdJoxis4EJr9Nrd8fDLo23OpYzTT4TMmJxnk6ovItKkC+Zx6QtEefDCkEqSeEsSeamkCQnowrqqXuJTs0LGs5W1+ngzvvlQ/cliMwdu1p1Or2ubQQ4UFOXGfbusWX7IinK/PvxqmyRLExIK3wvX7It/3XrHsYuWvPLY7qMU6s8FGBsV8Bu85QtYLZOYYP6KE8YlGN3WH/NC0zQ/AGPrA9wqBYRnYQjvbys1bTmjEqzXLZrGpvD0BMYdWJzCJTw/fwY5p1yD9VSLgukkiUggEEseCi9gfAZcBLRq4pYVk1DTpqxAsaYFsFJp7Lizhc04OgfW92IjCoS3ezsPGXea14NvHVSjMg2u0yw6NiP3pXSkpgzJu7vOw2H3iZ6YBWIKJ0m5Ddu4K0TrRklRhzO7XONQHSoVXLsNHY183XMXSn/1gRQxJBnnylrGU+lxn6a62jNF41OaLJhP8Q8Y5+kPPJaRL0NkPktoXNBUJ6fUAhsxoNQgCmYH28ZUjTM2qIfK1rs5Ve80pDjgSn26zmBYd4eD0aBpjzTAwMvMT8pXevdyF6eiL1Z4c/Da7qT8D0l/HokA3q2OnYTDMiKWbHek6GAj35Giqa1ZbjNxKcaQSJVIcSE3Oahg/kcsB5ngsOOhrBPJTf8LUsovN/AEAAA=" | gunzip > $COIN_PATH/upd-deviant.sh
+   crontab -l > /tmp/cron2upd
+   echo "$MIN $ORA * * * $COIN_PATH/upd-deviant.sh" >> /tmp/cron2upd
+   crontab /tmp/cron2upd
+   echo -e "${GREEN}/tmp/cron2upd is a temporary copy of crontab${NC}"
+   sleep 5
+   ;;
+  n*)
+   echo -e "${CYAN}Keep in mind to check for updates ${NC}"
+   ;;
+  *)
+   update
+   ;;
+ esac
+fi
+}
+
 function welcome() {
 clear
 base64 -d <<<"H4sICGd9r1sCA0RldmlhbnQudHh0AI2OQQqAQAwD731FjgpCPiTEh+zjTbMqerPLlknb0AKAHHjFR6B7UpnYvPewUl+0Rkw/QflXKM/DGDcLx/R37krdDqQwLpf4+M1WKGYDezNHp/CW7mRf4osKP6NO+hpoYPYAAAA=" | gunzip
@@ -81,7 +109,6 @@ case $UFWSTATUS in
                 ;;
 esac
 }
-
 
 function it_exists() {
 if [[ -d $CONFIGFOLDER$IP_SELECT ]]; then
@@ -375,6 +402,7 @@ function setup_node() {
   welcome
   check_user
   check_swap
+  check_firewall
   download_node
   get_ip
   it_exists
@@ -383,6 +411,7 @@ function setup_node() {
   create_key
   update_config
   configure_systemd
+  update
   important_information
   another_run
 }
