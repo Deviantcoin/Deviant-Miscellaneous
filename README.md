@@ -1,6 +1,6 @@
 ![logo](images/DEV-logo.png)
 # Deviant-Miscellaneous
-Master node setup guides and scripts
+Howto, setup guides and scripts
 
 [QT wallet - Preparation steps to run a Deviant Masternode](/common/Preparation-steps-for-MN.md)<br />
 
