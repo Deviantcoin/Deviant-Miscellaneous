@@ -93,6 +93,7 @@ sleep 3
 
 function download_node() {
   echo -e "${GREEN}Downloading and Installing VPS $COIN_NAME Daemon${NC}"
+  apt -y install zip unzip curl >/dev/null 2>&1
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
   if [[ $? -ne 0 ]]; then
@@ -115,12 +116,14 @@ function download_node() {
      RESTARTSYSD=Y
    fi
   fi
-  unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
-  chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
-  if [[ "RESTARTSYSD" == "Y" ]]
-  then for service in $(systemctl | grep Deviant | awk '{ print $1 }'); do systemctl start $service >/dev/null 2>&1; done
+  if [[ "$MD5SUMOLD" != "$MD5SUMNEW" ]]         
+   then unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
+   chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+    if [[ "$RESTARTSYSD" == "Y" ]]
+    then for service in $(systemctl | grep $COIN_NAME | awk '{ print $1 }'); do systemctl start $service >/dev/null 2>&1; done
+    fi
+   sleep 3
   fi
-  sleep 3
   cd ~ >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
   clear
