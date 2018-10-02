@@ -24,6 +24,19 @@ MAG='\e[1;35m'
 ## ToDO: function to install mandatory tools, like unzip and curl
 ## ToDo: warnign about missing bind parameter if a MN is already installed
 
+function welcome() {
+clear
+base64 -d <<<"H4sICGd9r1sCA0RldmlhbnQudHh0AI2OQQqAQAwD731FjgpCPiTEh+zjTbMqerPLlknb0AKAHHjFR6B7UpnYvPewUl+0Rkw/QflXKM/DGDcLx/R37krdDqQwLpf4+M1WKGYDezNHp/CW7mRf4osKP6NO+hpoYPYAAAA=" | gunzip
+sleep 3
+}
+
+function check_distro() {
+if [[ $(lsb_release -i) != *Ubuntu* ]]; then
+  echo -e "${RED}You are not running Ubuntu. This script is meant for Ubuntu.${NC}"
+  exit 1
+fi
+}
+
 function check_user() {
 if [[ $EUID -ne 0 ]]; then
    echo -e "${RED}$0 must be run as root.${NC}"
@@ -61,6 +74,7 @@ fi
 
 function download_node() {
   echo -e "${GREEN}Downloading and Installing VPS $COIN_NAME Daemon${NC}"
+  sleep 5
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
   if [[ $? -ne 0 ]]; then
@@ -309,6 +323,8 @@ function important_information() {
 
 function setup_node() {
   unset NODE_IPS
+  check_distro
+  welcome
   check_user
   check_swap
   download_node
