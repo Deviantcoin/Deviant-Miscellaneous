@@ -104,7 +104,7 @@ Step | Example
 2.1 | ![wallet unlock](/images/cli-wallet-unlock.png)
 2.2 | ![sendfrom1](/images/cli-sendfrom-account.png)
 2.3 | ![listunspent](/images/cli-list-unspent2.png)
-2.3 | ![setaccount](images/cli-set-account.png)
+2.3 | ![setaccount](/images/cli-set-account.png)
 2.3 | ![sendfrom2](/images/cli-send-others.png)
 
 There is not a formula to calculate the optimal size of inputs. It depends on the values staking on the network. Also optimal size is not a constant and it changes with time.<br />
