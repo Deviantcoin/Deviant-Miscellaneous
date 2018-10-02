@@ -110,8 +110,13 @@ So, in order to run a cli wallet you need (example for arm32):<br />
 ```
 wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm32.zip
 sudo unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin
-deviantd
-```
+deviantd -printtoconsole
+``` 
+The option "-printtoconsole" during first run is useful because you have a real time report on screen.<br />  
+
+Tip: after first sync, to run the wallet in background you can execute it with command:<br />
+```deviantd -daemon```
+
 ### Encrypting the wallet
 When the sync is finished, it is recommended to encrypt the wallet before transfering funds to it.<br />
 This action will enhance the security of your wallet, once the wallet is encrypted you need to unlock it before moving funds.
