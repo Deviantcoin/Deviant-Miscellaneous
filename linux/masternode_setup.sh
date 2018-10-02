@@ -44,6 +44,7 @@ if [[ $? -ne 0 ]]
    ;;
   n*)
    echo -e "${CYAN}Keep in mind to check for updates ${NC}"
+   sleep 5
    ;;
   *)
    update
@@ -55,6 +56,7 @@ fi
 function welcome() {
 clear
 base64 -d <<<"H4sICGd9r1sCA0RldmlhbnQudHh0AI2OQQqAQAwD731FjgpCPiTEh+zjTbMqerPLlknb0AKAHHjFR6B7UpnYvPewUl+0Rkw/QflXKM/DGDcLx/R37krdDqQwLpf4+M1WKGYDezNHp/CW7mRf4osKP6NO+hpoYPYAAAA=" | gunzip
+echo -e "${GREEN}Installation script for deviant masternode${NC}"
 sleep 3
 }
 
@@ -100,7 +102,7 @@ case $UFWSTATUS in
                 ufw status | grep $COIN_PORT | grep ALLOW >/dev/null 2>&1
                 if [[ $? -eq 0 ]]; then echo "ufw seems already active and configured"
                  sleep 5
-                 else echo "ufw is already active. Enabling 3Dcoin port ...."
+                 else echo "ufw is already active. Enabling deviant port ...."
                  ufw allow $COIN_PORT >/dev/null 2>&1
                 fi
                 ;;
@@ -353,6 +355,7 @@ fi
 }
 
 function important_information() {
+clear
  echo
  echo -e "${BLUE}================================================================================================================================${NC}"
  echo -e "${PURPLE}multiple vps setup${NC}"

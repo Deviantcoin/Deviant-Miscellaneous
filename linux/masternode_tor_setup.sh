@@ -44,6 +44,7 @@ if [[ $? -ne 0 ]]
    ;;
   n*)
    echo -e "${CYAN}Keep in mind to check for updates ${NC}"
+   sleep 5
    ;;
   *)
    update
@@ -55,6 +56,7 @@ fi
 function welcome() {
 clear
 base64 -d <<<"H4sICGd9r1sCA0RldmlhbnQudHh0AI2OQQqAQAwD731FjgpCPiTEh+zjTbMqerPLlknb0AKAHHjFR6B7UpnYvPewUl+0Rkw/QflXKM/DGDcLx/R37krdDqQwLpf4+M1WKGYDezNHp/CW7mRf4osKP6NO+hpoYPYAAAA=" | gunzip
+echo -e "${GREEN}Installation script for deviant masternode${NC}"
 sleep 3
 }
 
@@ -398,6 +400,7 @@ fi
 }
 
 function important_information() {
+clear
  echo
  echo -e "${BLUE}================================================================================================================================${NC}"
  echo -e "${PURPLE}multiple vps setup${NC}"
