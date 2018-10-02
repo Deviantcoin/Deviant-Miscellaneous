@@ -34,6 +34,13 @@ To launch the script exec this commands:<br />
 
 ![launch script](/images/launch-script.png)
 
+## Check the firewall
+The script will check the ufw (Ubuntu Firewall) status.
+If ufw is already configured, also for deviant p2p port, this screen will not popup.
+If you enable ufw via this script, the deviant p2p port will be enabled. Every port that is listening will be configured as well.
+
+![ufw configuration](/images/mn-firewall-disabled.png)
+
 ## Select the IP
 This function let you choice on which IP you are going to listen the Masternode.
 Pressing ENTER without any other input will install the daemon on the main ip address. Any other IP address will be related to a increasing number 1 to _n_ . To select an ip realted to a number, type the number than press ENTER
@@ -53,6 +60,11 @@ In this step, the script asks you to enter the Masternode private key. This key 
 ![mn priv key](/images/mn-priv-key.png)
 
 In this case the key generate during preparation steps has been used
+
+## Daily update check
+In this step you can enable a daily check for updates. If you type "y", the script will create a directive in crontab.
+
+![check daily updates](/images/mn-firewall-disabled.png)
 
 ## Setup done
 After the private key step, the setup is finished.
