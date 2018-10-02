@@ -58,8 +58,8 @@ Step | On screen
 ---- | ---------
 Open the menu | ![menu unlock](/images/unlock-wallet-menu.png)
 Enter passhphrase | ![enter passphrase](/images/unlock-wallet-password.png)
-Verify lock status | ![verify unlock](/images/unlock-wallet-verify.png)
-Verify staking status | ![verify staking](/images/staking-icon.png)
+Verify Lock/Unlock | ![verify unlock](/images/unlock-wallet-verify.png)
+Verify Staking status | ![verify staking](/images/staking-icon.png)
 
 ## CLI wallet on linux
 ### Prerequisites
@@ -81,15 +81,15 @@ To check confirmations number and other details you can fire:<br />
 ```deviant-cli listunspent```
 ![listunspent](images/cli-wallet-unspent1.png)
 ### Split your DEV into stake inputs
-This step is optional and it depends on the amount you are staking.  
-There several ways to split the original input.
+This step is optional, in fact there is no proof that splitting helps the stakes. It is a practice for believers, says the most.  
+There are several ways to split the original input.
 The proper way to split UTXO (Unspent Transaction Output) is working with raw transactions.
 This way will not be discussed here:<br />
-1. This is a basic guide<br />
+1. This one, is a basic guide<br />
 2. The risk to lose coins is high if you have no experience with raw transactions.<br />
 
 There are other ways to split your balance in inputs:<br />
-1. Send coins to STAKE address with several transactions (each transaction is an input)
+1. Send your DEVs using several transactions (each transaction is an input)
 2. Using a change address:<br />
 2.1. Unlock wallet for 10 minutes ` deviant-cli walletpassphrase '<your passphrase>' 600` <br />
 2.2. Move first input ```deviant-cli sendfrom "ACCOUNT" "toaddress" amount``` <br />
