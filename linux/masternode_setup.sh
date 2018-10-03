@@ -385,9 +385,9 @@ if [[ "$another" != "y" ]]
    shutdown -r now
    fi
    if [[ "$REBOOTSYS" == "n" && -f /var/run/reboot-required ]]
-   then echo -e "${RED}Keep in mind, this server still needs a reboot${NC}"
-   fi
+   then echo -e "${RED}Keep in mind, this server still need a reboot${NC}"
    echo "Good bye!"
+   fi
   else setup_node
 fi
 }
