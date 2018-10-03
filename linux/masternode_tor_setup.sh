@@ -189,6 +189,7 @@ sleep 3
 function download_node() {
   echo -e "${GREEN}Downloading and Installing VPS $COIN_NAME Daemon${NC}"
   apt -y install zip unzip curl >/dev/null 2>&1
+  sleep 5
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
   if [[ $? -ne 0 ]]; then
@@ -199,25 +200,26 @@ function download_node() {
   unzip -j $COIN_ZIP *$COIN_DAEMON >/dev/null 2>&1
   MD5SUMOLD=$(md5sum $COIN_PATH$COIN_DAEMON | awk '{print $1}')
   MD5SUMNEW=$(md5sum $COIN_DAEMON | awk '{print $1}')
-  pidof $COIN_DAEMON
+  pidof $COIN_DAEMON >/dev/null 2>&1
   RC=$?
    if [[ "$MD5SUMOLD" != "$MD5SUMNEW" && "$RC" -eq 0 ]]; then
      echo -e 'Those daemon(s) are about to die'
      echo -e $(ps axo cmd:100 | grep $COIN_DAEMON | grep -v grep)
-     echo -e 'If systemd service is not implemented, take care of their restart'
-     for service in $(systemctl | grep Deviant | awk '{ print $1 }'); do systemctl stop $service >/dev/null 2>&1; done
+     echo -e 'If systemd service or a custom check is not implemented, take care of their restart'
+     for service in $(systemctl | grep $COIN_NAME | awk '{ print $1 }'); do systemctl stop $service >/dev/null 2>&1; done
      sleep 3
-     killall $COIN_DAEMON
      RESTARTSYSD=Y
    fi
-  fi
-  if [[ "$MD5SUMOLD" != "$MD5SUMNEW" ]]         
-   then unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
-   chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+   if [[ "$MD5SUMOLD" != "$MD5SUMNEW" ]]
+    then unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
+    chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
     if [[ "$RESTARTSYSD" == "Y" ]]
     then for service in $(systemctl | grep $COIN_NAME | awk '{ print $1 }'); do systemctl start $service >/dev/null 2>&1; done
     fi
-   sleep 3
+    sleep 3
+   fi
+  else unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
+  chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
   fi
   cd ~ >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
