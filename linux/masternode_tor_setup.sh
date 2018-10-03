@@ -27,7 +27,7 @@ function apt_update() {
 echo
 echo -e "${GREEN}Checking and installing operating system updates. It may take awhile ...${NC}"
 apt-get update >/dev/null 2>&1
-apt-get -y upgrade >/dev/null 2>&1
+apt-get -y dist-upgrade >/dev/null 2>&1
 apt-get -y install zip unzip curl >/dev/null 2>&1
 apt-get -y autoremove >/dev/null 2>&1
 if [[ -f /var/run/reboot-required ]]
@@ -118,7 +118,8 @@ case $UFWSTATUS in
                    sleep 5
                    ;;
                   n*)
-                   exit
+                   echo "ufw has been left disabled..."
+                   sleep 3
                    ;;
                   *)
                    check_firewall
@@ -430,8 +431,8 @@ if [[ "$another" != "y" ]]
    fi
    if [[ "$REBOOTSYS" == "n" && -f /var/run/reboot-required ]]
    then echo -e "${RED}Keep in mind, this server still need a reboot${NC}"
-   echo "Good bye!"
    fi
+   echo "Good bye!"
   else setup_node
 fi
 }
