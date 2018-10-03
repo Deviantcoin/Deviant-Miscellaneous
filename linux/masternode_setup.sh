@@ -43,7 +43,7 @@ if [[ -f /var/run/reboot-required ]]
     REBOOTSYS=n
     ;;
    *)
-    echo -e "${GREEN}Your choice,${NC}${CYAN} $rebootsys${NC},${GREEN} is not valid. Assuming${NC}${RED} n ${NC}$"
+    echo -e "${GREEN}Your choice,${NC}${CYAN} $rebootsys${NC},${GREEN} is not valid. Assuming${NC}${RED} n ${NC}"
     REBOOTSYS=n
     sleep 5
     ;;
