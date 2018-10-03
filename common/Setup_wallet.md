@@ -129,7 +129,7 @@ When wallet encryption ends, the wallet will close itself, so you will need to s
 
 Before you transfer funds, you must be aware about zeromint.
 Zeromint will mint DEVs into zDEVs. The CLI wallet has this feature enabled by default.
-If you don't need to mix DEVs into zDEV, to change the default behaviour, you must set the parameter `enablezerocoin=0` in file `deviant.conf`.
+If you don't need to mix DEVs into zDEV, to change the default behaviour, you must set the parameter `enablezeromint=0` in file `deviant.conf`.
 
 ### Alternatives
 The default CLI wallets are built on recent software stack.

@@ -74,7 +74,7 @@ If you need to check it, you can use the command:<br />
 ```deviant-cli getaddressesbyaccount "STAKE"```<br />
 You will send your DEVs to STAKE account address. Keep always in mind that zDEV minting is enabled by default in CLI wallet. If you don't want to mix DEV into zDEV, add the parameter `enablezerocoin=0` in file `deviant.conf`.<br />
 for example with command:<br />
-```echo "enablezerocoin=0" >> $HOME/.DeviantCore/deviant.conf```<br />
+```echo "enablezeromint=0" >> $HOME/.DeviantCore/deviant.conf```<br />
 Or with your preferred text editor.
 Once funds have been transferred check them with:<br />
 ```deviant-cli getbalance``` <br />
