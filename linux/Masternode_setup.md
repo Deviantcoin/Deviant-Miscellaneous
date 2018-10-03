@@ -6,7 +6,6 @@
 1. The [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
 2. A Linux VPS is mandatory for this setup. Ubuntu 16.04 is the recommended one. Successful setup have been reported also on Ubuntu 18.04.
 3. A client SSH for your Operating System. In this guide it will be [putty portable for win32](https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe). You can use Terminal on MacOS or gnome-terminal on Linux.
-3. On VPS you need `unzip` and `curl` utilities.
 
 ## Establish connection
 Open your ssh client then fill it with the parameters of your VPS (ip address and ssh port, default is 22).
@@ -16,23 +15,21 @@ Connection parameters | Host certificate warnig | Login process
 --------------------- | ----------------------- | ------------- 
 ![putty](/images/putty-connection.png) | ![login](/images/putty-security.png) | ![login](/images/putty-login.png)
 
-## Check the utilities
-To check unzip and curl we use:<br />
-```
-which unzip 
-which curl
-```
-The expected result is a filled line with full path.
-If the output is without path, then you need to install the missing utility/utilities.
-
-![check utilities](/images/utilities.png)
-
 ## Launch the script
 To launch the script exec this commands:<br />
 `wget https://raw.githubusercontent.com/Deviantcoin/Deviant-Miscellaneous/master/linux/masternode_setup.sh`<br />
 `bash masternode_setup.sh`
 
 ![launch script](/images/launch-script.png)
+
+## Check Ubuntu updates
+In this step the script will check and install available updates. The updates should be applied on regular basis to avoid known vulnerabilities on own system.<br />
+
+![check updates](/images/mn-checking-os-updates.png)
+
+If some update needs a system reboot, the script will notify this to you. You can let the script reboot the system, or you can do it manually.<br />
+
+![reboot needed](/images/mn-reboot-needed.png)
 
 ## Check the firewall
 The script will check the ufw (Ubuntu Firewall) status.
