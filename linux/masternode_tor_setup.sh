@@ -25,8 +25,11 @@ MAG='\e[1;35m'
 
 function apt_update() {
 echo
-echo -e "${GREEN}Checking and installing operating system updates. It may take awhile ..."
-apt-get update && apt-get -y upgrade && apt-get install zip unzip curl && apt-get autoremove >/dev/null 2>&1
+echo -e "${GREEN}Checking and installing operating system updates. It may take awhile ...${NC}"
+apt-get update >/dev/null 2>&1
+apt-get -y upgrade >/dev/null 2>&1
+apt-get install zip unzip curl >/dev/null 2>&1
+apt-get autoremove >/dev/null 2>&1
 if [[ -f /var/run/reboot-required ]]
   then echo -e "${RED}Warning:${NC}${GREEN}some updates require a reboot${NC}"
   echo -e "${GREEN}Do you want to reboot at the end of masternode installation process?${NC}"
