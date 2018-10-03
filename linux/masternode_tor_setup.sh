@@ -118,7 +118,8 @@ case $UFWSTATUS in
                    sleep 5
                    ;;
                   n*)
-                   exit
+                   echo "ufw has been left disabled..."
+                   sleep 3
                    ;;
                   *)
                    check_firewall
@@ -429,7 +430,7 @@ if [[ "$another" != "y" ]]
    shutdown -r now
    fi
    if [[ "$REBOOTSYS" == "n" && -f /var/run/reboot-required ]]
-   then echo -e "${RED}Keep in mind, this server still need a reboot${NC}"
+   then echo -e "${RED}Keep in mind, this server still needs a reboot${NC}"
    echo "Good bye!"
    fi
   else setup_node
