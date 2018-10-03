@@ -21,13 +21,15 @@ GREEN="\033[0;32m"
 NC='\033[0m'
 MAG='\e[1;35m'
 
-## ToDO: function to install mandatory tools, like unzip and curl
 ## ToDo: warnign about missing bind parameter if a MN is already installed
 
 function apt_update() {
 echo
-echo -e "${GREEN}Checking and installing operating system updates. It may take awhile ..."
-apt-get update && apt-get -y upgrade && apt-get install zip unzip curl && apt-get autoremove >/dev/null 2>&1
+echo -e "${GREEN}Checking and installing operating system updates. It may take awhile ...${NC}"
+apt-get update >/dev/null 2>&1
+apt-get -y upgrade >/dev/null 2>&1 
+apt-get install zip unzip curl >/dev/null 2>&1
+apt-get autoremove >/dev/null 2>&1
 if [[ -f /var/run/reboot-required ]]
   then echo -e "${RED}Warning:${NC}${GREEN}some updates require a reboot${NC}"
   echo -e "${GREEN}Do you want to reboot at the end of masternode installation process?${NC}"
