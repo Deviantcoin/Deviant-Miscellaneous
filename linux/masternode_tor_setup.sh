@@ -21,8 +21,30 @@ GREEN="\033[0;32m"
 NC='\033[0m'
 MAG='\e[1;35m'
 
-## ToDO: function to install mandatory tools, like unzip and curl
 ## ToDo: warnign about missing bind parameter if a MN is already installed
+
+function apt_update() {
+echo
+echo -e "${GREEN}Checking and installing operating system updates. It may take awhile ..."
+apt-get update && apt-get -y upgrade && apt-get install zip unzip curl && apt-get autoremove >/dev/null 2>&1
+if [[ -f /var/run/reboot-required ]]
+  then echo -e "${RED}Warning:${NC}${GREEN}some updates require a reboot${NC}"
+  echo -e "${GREEN}Do you want to reboot at the end of masternode installation process?${NC}"
+  echo -e "${GREEN}(${NC}${RED} y ${NC} ${GREEN}/${NC}${RED} n ${NC}${GREEN})${NC}"
+  read rebootsys
+  case $rebootsys in
+   y*)
+    REBOOTSYS=y
+    ;;
+   n*)
+    REBOOTSYS=n
+    ;;
+   *)
+    echo -e "${GREEN}Your choice,${NC}${CYAN} $rebootsys${NC},${GREEN} is not valid. Assuming${NC}${RED} n ${NC}$"
+    ;;
+  esac
+fi
+}
 
 function update() {
 crontab -l | grep "$COIN_PATH/upd-deviant.sh"
@@ -449,6 +471,7 @@ function setup_node() {
   check_distro
   welcome
   check_user
+  apt_update
   check_swap
   check_firewall
   download_node
