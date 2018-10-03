@@ -28,8 +28,8 @@ echo
 echo -e "${GREEN}Checking and installing operating system updates. It may take awhile ...${NC}"
 apt-get update >/dev/null 2>&1
 apt-get -y upgrade >/dev/null 2>&1 
-apt-get install zip unzip curl >/dev/null 2>&1
-apt-get autoremove >/dev/null 2>&1
+apt-get -y install zip unzip curl >/dev/null 2>&1
+apt-get -y autoremove >/dev/null 2>&1
 if [[ -f /var/run/reboot-required ]]
   then echo -e "${RED}Warning:${NC}${GREEN}some updates require a reboot${NC}"
   echo -e "${GREEN}Do you want to reboot at the end of masternode installation process?${NC}"
@@ -44,6 +44,8 @@ if [[ -f /var/run/reboot-required ]]
     ;;
    *)
     echo -e "${GREEN}Your choice,${NC}${CYAN} $rebootsys${NC},${GREEN} is not valid. Assuming${NC}${RED} n ${NC}$"
+    REBOOTSYS=n
+    sleep 5
     ;;
   esac
 fi
@@ -374,7 +376,15 @@ echo -e "If you want to install another masternode, please type ${RED}y${NC}"
 echo -e "Any other key will close such script"
 read -e another
 if [[ "$another" != "y" ]]
-  then echo -e "Good bye!"
+  then if [[ "$REBOOTSYS" == "y" ]]
+   then echo -e "Good bye!"
+   sleep 3
+   shutdown -r now
+   fi
+   if [[ "$REBOOTSYS" == "n" && -f /var/run/reboot-required ]]
+   then echo -e "${RED}Keep in mind, this server still need a reboot${NC}"
+   echo "Good bye!"
+   fi
   else setup_node
 fi
 }
