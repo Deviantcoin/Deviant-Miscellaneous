@@ -29,7 +29,7 @@ If the output is without path, then you need to install the missing utility/util
 
 ## Launch the script
 To launch the script exec this commands:<br />
-`wget https://raw.githubusercontent.com/ScaMar/Deviant-Masternode/master/linux/masternode_setup.sh`<br />
+`wget https://raw.githubusercontent.com/Deviantcoin/Deviant-Miscellaneous/master/linux/masternode_setup.sh`<br />
 `bash masternode_setup.sh`
 
 ![launch script](/images/launch-script.png)
