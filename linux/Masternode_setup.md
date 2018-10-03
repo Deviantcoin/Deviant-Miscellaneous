@@ -41,6 +41,8 @@ If you enable ufw via this script, the deviant p2p port will be enabled. Every p
 
 ![ufw configuration](/images/mn-firewall-disabled.png)
 
+![ufw done](/images/mn-firewall-enabled.png)
+
 ## Select the IP
 This function let you choice on which IP you are going to listen the Masternode.
 Pressing ENTER without any other input will install the daemon on the main ip address. Any other IP address will be related to a increasing number 1 to _n_ . To select an ip realted to a number, type the number than press ENTER
