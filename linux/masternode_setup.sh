@@ -52,9 +52,9 @@ fi
 }
 
 function update() {
-crontab -l | grep "$COIN_PATH/upd-deviant.sh"
+crontab -l | grep "$COIN_PATH/upd-deviant.sh" >/dev/null 2>&1
 if [[ $? -ne 0 ]]
- then echo -e "${GREEN}Do you want to setup a daily check for updates? (y/n)${NC}"
+ then echo -e "${GREEN}Do you want to setup a daily check for $COIN_NAME executables updates? (y/n)${NC}"
  echo -e "${RED}y${GREEN} i want setup a daily check for updates"
  echo -e "${RED}n${GREEN} no, i will check manually for updates${NC}"
  read checkupdate
