@@ -15,3 +15,4 @@ Howto, setup guides and scripts
 [Deviant Masternode setup on Linux VPS](/linux/Masternode_setup.md)<br />
 
 [Windows - Hot MasterNode under NAT](/windows/Hot-MasterNode-under-NAT.md)<br />
+[Windows - Workaround Hot Masternode issue](/windows/Hot-MasterNode-workaround.md)<br />
