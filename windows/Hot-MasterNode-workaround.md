@@ -130,11 +130,11 @@ To check if the start is really succesful you can use this command:<br />
 
 ## Troubleshooting the configuration
 
-File / Parameter | Hot - GUI wallet | Cold - CLI wallet
----------------- | ---------------- | -----------------
+File / Parameter | Hot - GUI wallet - deviant-qt | Cold - CLI wallet - deviantd
+---------------- | ----------------------------- | ----------------------------
 Data Directory | `%APPDATA%\DeviantCore` | `%APPDATA%\DeviantCoreMN`
-deviant.conf | [GUI dev.conf](/images/WIN-gui-devconf.png) | [CLI dev.conf](/images/WIN-cli-devconf.png)
-masternode.conf | [GUI mn.conf](/images/WIN-gui-mnconf.png) | [CLI mn.conf](/images/WIN-cli-mnconf.png)
+deviant.conf | ![GUI dev.conf](/images/WIN-gui-devconf.png) | ![CLI dev.conf](/images/WIN-cli-devconf.png)
+masternode.conf | ![GUI mn.conf](/images/WIN-gui-mnconf.png) | ![CLI mn.conf](/images/WIN-cli-mnconf.png)
 
 
 
