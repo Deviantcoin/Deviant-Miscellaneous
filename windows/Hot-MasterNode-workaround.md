@@ -2,7 +2,7 @@
 ## Issue
 You are running a Hot Masternode on Windows Server 2012 and/or Windows Server 2016.
 The Masternode status always reach status "MISSING".
-The command `masternode status` executed in debug console, always give this outputs:
+The command `masternode status` executed in debug console, always gives this output:
 ```Masternode not found in list of available masternodes. Current status: Not capable masternode:```<br />
 You have double checked your configuration, everything seems Ok, simply your Masternode refuse to go online.
 ## Workaround
@@ -27,15 +27,15 @@ echo listen=0 >> deviant.conf
 ```
 ![Adj deviant.conf](/images/WIN-adj-deviant.conf.png)
 
-If your setup match this case, you already did the [preparation steps](/common/Preparation-steps-for-MN.md)
+If your setup match this case, you already did the [preparation steps](/common/Preparation-steps-for-MN.md). Also you already have a proper `masternode.conf`.
 
-Restart your wallet
+
 ### Case 2: You need to install the wallet
 In this case follow the [guide](/common/Setup_wallet.md). I suggest to use the standalone executables, uncompress them in folder C:\Deviantcoin.<br />
 
 ![Suggested location](/images/WIN-sugg-loc.png)
 
-Fill your deviant.conf with only one line:
+Fill your deviant.conf with only two lines:
 ```
 listen=0
 rpcport=22619
@@ -43,22 +43,22 @@ rpcport=22619
 
 ![deviant.conf-workaround](/images/WIN-two-lines.png)
 
-Start you wallet
+Start you wallet and check [preparation steps](/common/Preparation-steps-for-MN.md) in order to be ready to execute the masternode.
 ## Cold wallet (CLI wallet)
 As Cold wallet we will use the `deviantd.exe` that is shipped within wallet package. To setup the deamon without beeing in conflict with the wallet follow these steps.
 
-1. Create a new data directory
+1. Create a new data directory<br />
 With cmd prompt:<br />
 ```mkdir %APPDATA%\DeviantCoreMN```
 
 With explorer:<br />
 ![New datadir](/images/WIN-new-datadir.png)
 
-2. Create the management scripts directory
+2. Create the management scripts directory<br />
 ![scripts dir](/images/WIN-dir-scripts.png)
 
 3. Create the management scripts:<br />
-3.1. Start daemon script
+3.1. Start daemon script<br />
 Open the notepad, paste these lines in it:<br />
 ```
 C:\Deviantcoin\dev-3.0.0.1-win64\deviantd.exe -conf=%APPDATA%\DeviantCoreMN\deviant.conf -datadir=%APPDATA%\DeviantCoreMN
@@ -70,7 +70,7 @@ Note: select "All files" in "Save as type:", otherwise it will be saved as "txt"
 
 ![Save as Dev-MN](/images/WIN-dev-mn.bat.png)
 
-3.2 deviant-cli script
+3.2 deviant-cli script<br />
 Open the notepad, paste these lines in it:<br />
 ```
 C:\Deviantcoin\dev-3.0.0.1-win64\deviant-cli.exe -conf=%APPDATA%\DeviantCoreMN\deviant.conf -datadir=%APPDATA%\DeviantCoreMN %*
@@ -82,7 +82,7 @@ Note: select "All files" in "Save as type:", otherwise it will be saved as "txt"
 
 ![Save as cli](/images/WIN-cli.bat.png)
 
-4. Fill deviant.conf
+4. Fill deviant.conf<br />
 Open notepad, fill with info for you system using this template:<br />
 ```
 masternode=1
@@ -95,7 +95,7 @@ In this guide the following `deviant.conf` has been used:<br />
 
 ![deviantd deviant.conf](/images/WIN-daemon-conf.png)
 
-5. Start the Cold wallet
+5. Start the Cold wallet<br />
 Browse the directory until you reach `C:\Deviantcoin\scripts`, then execute `Dev-MN.bat`
 
 ![start daemon](/images/WIN-start-daemon.png)
@@ -104,7 +104,7 @@ This action will open a window, do not close it, otherwise you will kill the dae
 
 ![daemon window](/images/WIN-daemon-window.png)
 
-6. Check the sync process
+6. Check the sync process<br />
 At this step, the daemon is running, you need to wait for full sync before start the masternode. You can check the sync status with following command:<br />
 ```deviant-cli.bat mnsync status```
 
@@ -123,6 +123,21 @@ To check if the start is really succesful you can use this command:<br />
 ```deviant-cli.bat masternode status```
 
 ![masternode status](/images/WIN-mn-status.png)
+
+## Do not forget!
+1. Enable [Windows firewall](/windows/windows-firewall.md)
+2. Unlock executables. (righ click on every deviant* executables, flag unlock checkbox)
+
+## Troubleshooting the configuration
+
+File / Parameter | Hot - GUI wallet | Cold - CLI wallet
+---------------- | ---------------- | -----------------
+Data Directory | `%APPDATA%\DeviantCore` | `%APPDATA%\DeviantCoreMN`
+deviant.conf | [GUI dev.conf](/images/WIN-gui-devconf.png) | [CLI dev.conf](/images/WIN-cli-devconf.png)
+masternode.conf | [GUI mn.conf](/images/WIN-gui-mnconf.png) | [CLI mn.conf](/images/WIN-cli-mnconf.png)
+
+
+
 
 
 
