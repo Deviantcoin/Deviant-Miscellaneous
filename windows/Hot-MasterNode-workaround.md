@@ -1,6 +1,6 @@
 # Workaround for Hot Masternode on windows
 ## Issue
-You are running a Hot Masternoden on Windows Server 2012 and/or Windows Server 2016.
+You are running a Hot Masternode on Windows Server 2012 and/or Windows Server 2016.
 The Masternode status always reach status "MISSING".
 The command `masternode status` executed in debug console, always give this outputs:
 ```Masternode not found in list of available masternodes. Current status: Not capable masternode:```<br />
