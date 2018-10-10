@@ -1,6 +1,6 @@
 # Setting up Windows firewall
 ## Outbound rules
-1. Open "Windows firewall with Advanced Security
+1. Open "Windows firewall with Advanced Security"
 
 ![Open firewall](/images/WIN-open-firewall.png)
 
@@ -31,7 +31,7 @@
 8. Repeat steps 1. to 7. to create a rule also for `deviantd.exe` (step 4.). When you reach step 7. use a name different from the previous one.
 
 ## Inbound rules
-1. Open "Windows firewall with Advanced Security
+1. Open "Windows firewall with Advanced Security"
 
 ![Open firewall](/images/WIN-open-firewall.png)
 
