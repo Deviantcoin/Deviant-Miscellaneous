@@ -54,7 +54,7 @@ The IP you select here, will be referenced by:
 Note: If there is only one available public IP on your VPS, this screen selection will be skipped during setup. The available ip will be used by default. In this case `{YOUR PUBLIC IP}` fits this ip (usually it is the same IP you use to connect to VPS).
 
 ## Insert Masternode privatekey
-In this step, the script asks you to enter the Masternode private key. This key has been generated during the [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md). It is known as {MN PRIV KEY}. If you didn't save the key, or you just like to use another key, the script will generate one key for you.
+In this step, the script asks you to enter the Masternode private key. This key has been generated during the [preparation steps](/common/Preparation-steps-for-MN.md). It is known as {MN PRIV KEY}. If you didn't save the key, or you just like to use another key, the script will generate one key for you.
 
 ![mn priv key](/images/mn-priv-key.png)
 
@@ -88,7 +88,7 @@ Open file masternode.conf<br />
 Add these lines:<br />
 ```{MN ALIAS} {YOUR PUBLIC IP}:22618 {MN PRIV KEY} {MN TX-iD} {TX-ID IDX}```<br />
 using the proper values instead the generic {PARAMETER}.
-In [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md) it is explained how to get most of them.<br />
+In [preparation steps](/common/Preparation-steps-for-MN.md) it is explained how to get most of them.<br />
 The ones not found there, are explained in here.<br />
 
 ![fill masternode.conf](/images/mn-fill-masternode-conf.png)
