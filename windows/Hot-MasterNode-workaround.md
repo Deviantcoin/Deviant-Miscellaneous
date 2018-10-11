@@ -1,8 +1,8 @@
 # Workaround for Hot Masternode on windows
 ## Issue
-You are running a Hot Masternode on Windows Server 2012 and/or Windows Server 2016.
-The Masternode status always reach status "MISSING".
-The command `masternode status` executed in debug console, always gives this output:
+You are running a Hot Masternode on Windows Server 2012 and/or Windows Server 2016.<br />
+The Masternode status always reach status "MISSING".<br />
+The command `masternode status` executed in debug console, always gives this output:<br />
 ```Masternode not found in list of available masternodes. Current status: Not capable masternode:```<br />
 You have double checked your configuration, everything seems Ok, simply your Masternode refuse to go online.
 ## Workaround
@@ -131,7 +131,7 @@ To check if the start is really succesful you can use this command:<br />
 
 ## Do not forget!
 1. Enable [Windows firewall](/windows/windows-firewall.md)
-2. Unlock executables. (righ click on every deviant* executables, flag unlock checkbox)
+2. Unlock executables. (righ click on every deviant* executables in folder C:\Deviantcoin\dev-3.0.0.1-win64,then flag the "unlock" checkbox)
 
 ## Troubleshooting the configuration
 
@@ -139,7 +139,11 @@ File / Parameter | Hot - GUI wallet - deviant-qt | Cold - CLI wallet - deviantd
 ---------------- | ----------------------------- | ----------------------------
 Data Directory | `%APPDATA%\DeviantCore` | `%APPDATA%\DeviantCoreMN`
 deviant.conf | ![GUI dev.conf](/images/WIN-gui-devconf.png) | ![CLI dev.conf](/images/WIN-cli-devconf.png)
-masternode.conf | ![GUI mn.conf](/images/WIN-gui-mnconf.png) | ![CLI mn.conf](/images/WIN-cli-mnconf.png)
+masternode.conf | ![GUI mn.conf](/images/WIN-gui-mnconf-cut.png) | ![CLI mn.conf](/images/WIN-cli-mnconf-cut.png)
+
+Note: The screenshots of masternode.conf files are cutted, you just have to note:<br />
+Hot - GUI wallet - deviant-qt --> filled file [uncutted](/images/WIN-gui-mnconf.png)<br />
+Cold - CLI wallet - deviantd --> default file (not filled with your data) [uncutted](/images/WIN-gui-mnconf.png)<br />
 
 
 
