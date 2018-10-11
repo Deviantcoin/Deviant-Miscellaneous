@@ -43,7 +43,12 @@ rpcport=22619
 
 ![deviant.conf-workaround](/images/WIN-two-lines.png)
 
-Start you wallet and check [preparation steps](/common/Preparation-steps-for-MN.md) in order to be ready to execute the masternode.
+Start you wallet and check [preparation steps](/common/Preparation-steps-for-MN.md) in order to be ready to execute the masternode.<br />
+Add your line to file `masternode.conf`:<br />
+`{MN ALIAS} {YOUR PUBLIC IP}:22618 {MN PRIV KEY} {MN TX-iD} {TX-ID IDX}`
+The values above are explained in the Preparation steps, except `{YOUR PUBLIC IP}`.
+You can check your public ip opening the url: [http://ident.me](http://ident.me).
+
 ## Cold wallet (CLI wallet)
 As Cold wallet we will use the `deviantd.exe` that is shipped within wallet package. To setup the deamon without beeing in conflict with the wallet follow these steps.
 
@@ -86,9 +91,9 @@ Note: select "All files" in "Save as type:", otherwise it will be saved as "txt"
 Open notepad, fill with info for you system using this template:<br />
 ```
 masternode=1
-masternodeprivkey=<MASTERNODE PRIV KEY> 
-bind=<PUBLIC IP>
-externalip=<PUBLIC IP>:22618
+masternodeprivkey={MN PRIV KEY} 
+bind={YOUR PUBLIC IP}
+externalip={YOUR PUBLIC IP}:22618
 rpcallow=127.0.0.1
 ```
 In this guide the following `deviant.conf` has been used:<br />
