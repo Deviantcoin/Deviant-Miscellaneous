@@ -274,7 +274,7 @@ fi
 function check_swap() {
 SWAPSIZE=$(cat /proc/meminfo | grep SwapTotal | awk '{print $2}')
 FREESPACE=$(df / | tail -1 | awk '{print $4}')
-if [ $SWAPSIZE -lt 400000 ]
+if [ $SWAPSIZE -lt 4000000 ]
   then if [ $FREESPACE -gt 6000000 ]
     then dd if=/dev/zero of=/bigfile.swap bs=250MB count=16 
     chmod 600 /bigfile.swap
