@@ -1,2 +1,2 @@
 # Windows
-This section contains materials foe Windows operating system
+This section contains materials for Windows operating system

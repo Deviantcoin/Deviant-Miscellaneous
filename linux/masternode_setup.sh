@@ -114,7 +114,7 @@ case $UFWSTATUS in
                    ufw -f enable
                    declare -a SERVICES=$(netstat -ntpl| grep -v 127.0.[0-99].[0-99] |grep -v '::1' | grep [0-9]|awk '{print $4}'|cut -d":" -f2)
                    for PORT in ${SERVICES};do echo -e "${GREEN} $PORT $(lsof -i:$PORT|tail -1 | awk '{print $1}') is listening on $PORT; enabling ...${NC}"; ufw allow $PORT >/dev/null 2>&1; done
-                   echo -e "${GREEN}Enabling $COIN_PORT ...${NC}"; ufw allow $PORT >/dev/null 2>&1
+                   echo -e "${GREEN}Enabling $COIN_PORT ...${NC}"; ufw allow $COIN_PORT >/dev/null 2>&1
                    sleep 5
                    ;;
                   n*)
@@ -252,7 +252,7 @@ netstat -napt | grep LISTEN | grep $NODEIP | grep $COIN_DAEMON >/dev/null 2>&1
 function check_swap() {
 SWAPSIZE=$(cat /proc/meminfo | grep SwapTotal | awk '{print $2}')
 FREESPACE=$(df / | tail -1 | awk '{print $4}')
-if [ $SWAPSIZE -lt 400000 ]
+if [ $SWAPSIZE -lt 4000000 ]
   then if [ $FREESPACE -gt 6000000 ]
     then dd if=/dev/zero of=/bigfile.swap bs=250MB count=16 
     chmod 600 /bigfile.swap

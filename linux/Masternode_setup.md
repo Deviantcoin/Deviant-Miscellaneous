@@ -3,7 +3,7 @@
 1. The user wants to setup a cold Masternode on a Linux x86_64 VPS.
 
 ## Prerequisites
-1. The [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
+1. The [preparation steps](/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
 2. A Linux VPS is mandatory for this setup. Ubuntu 16.04 is the recommended one. Successful setup have been reported also on Ubuntu 18.04.
 3. A client SSH for your Operating System. In this guide it will be [putty portable for win32](https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe). You can use Terminal on MacOS or gnome-terminal on Linux.
 
@@ -54,7 +54,7 @@ The IP you select here, will be referenced by:
 Note: If there is only one available public IP on your VPS, this screen selection will be skipped during setup. The available ip will be used by default. In this case `{YOUR PUBLIC IP}` fits this ip (usually it is the same IP you use to connect to VPS).
 
 ## Insert Masternode privatekey
-In this step, the script asks you to enter the Masternode private key. This key has been generated during the [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md). It is known as {MN PRIV KEY}. If you didn't save the key, or you just like to use another key, the script will generate one key for you.
+In this step, the script asks you to enter the Masternode private key. This key has been generated during the [preparation steps](/common/Preparation-steps-for-MN.md). It is known as {MN PRIV KEY}. If you didn't save the key, or you just like to use another key, the script will generate one key for you.
 
 ![mn priv key](/images/mn-priv-key.png)
 
@@ -88,7 +88,7 @@ Open file masternode.conf<br />
 Add these lines:<br />
 ```{MN ALIAS} {YOUR PUBLIC IP}:22618 {MN PRIV KEY} {MN TX-iD} {TX-ID IDX}```<br />
 using the proper values instead the generic {PARAMETER}.
-In [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md) it is explained how to get most of them.<br />
+In [preparation steps](/common/Preparation-steps-for-MN.md) it is explained how to get most of them.<br />
 The ones not found there, are explained in here.<br />
 
 ![fill masternode.conf](/images/mn-fill-masternode-conf.png)
