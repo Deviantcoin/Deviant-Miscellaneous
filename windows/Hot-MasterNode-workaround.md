@@ -45,8 +45,8 @@ rpcport=22619
 
 Start you wallet and check [preparation steps](/common/Preparation-steps-for-MN.md) in order to be ready to execute the masternode.<br />
 Add your line to file `masternode.conf`:<br />
-`{MN ALIAS} {YOUR PUBLIC IP}:22618 {MN PRIV KEY} {MN TX-iD} {TX-ID IDX}`
-The values above are explained in the Preparation steps, except `{YOUR PUBLIC IP}`.
+`{MN ALIAS} {YOUR PUBLIC IP}:22618 {MN PRIV KEY} {MN TX-iD} {TX-ID IDX}`<br />
+The values above are explained in the Preparation steps, except `{YOUR PUBLIC IP}`.<br />
 You can check your public ip opening the url: [http://ident.me](http://ident.me).
 
 ## Cold wallet (CLI wallet)
