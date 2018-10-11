@@ -3,7 +3,7 @@
 1. The user wants to setup a cold Masternode on a Linux x86_64 VPS.
 
 ## Prerequisites
-1. The [preparation steps](https://github.com/ScaMar/Deviant-Masternode/blob/master/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
+1. The [preparation steps](/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
 2. A Linux VPS is mandatory for this setup. Ubuntu 16.04 is the recommended one. Successful setup have been reported also on Ubuntu 18.04.
 3. A client SSH for your Operating System. In this guide it will be [putty portable for win32](https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe). You can use Terminal on MacOS or gnome-terminal on Linux.
 
