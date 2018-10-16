@@ -9,7 +9,7 @@ You have double checked your configuration, everything seems Ok, simply your Mas
 As a workaround you have several options,
 any of them is a variant of Hot / Cold masternode setup.
 In this guide you will be driven to setup a Hot / Cold Masternode on the very same Windows Server.
-## Hot wallet (GUI wallet)
+## Cold wallet (GUI wallet)
 ### Case 1: You already have a running deviant-qt wallet
 Probably, because you are checking this workaround, you already installed the wallet.
 In this case, close your wallet. Rename your deviant.conf in deviant.conf.bak. Create a new deviant.conf with only a line:<br />
@@ -49,8 +49,8 @@ Add your line to file `masternode.conf`:<br />
 The values above are explained in the Preparation steps, except `{YOUR PUBLIC IP}`.<br />
 You can check your public ip opening the url: [http://ident.me](http://ident.me).
 
-## Cold wallet (CLI wallet)
-As Cold wallet we will use the `deviantd.exe` that is shipped within wallet package. To setup the deamon without beeing in conflict with the wallet follow these steps.
+## Hot wallet (CLI wallet)
+As Hot wallet we will use the `deviantd.exe` that is shipped within wallet package. To setup the deamon without beeing in conflict with the wallet follow these steps.
 
 1. Create a new data directory<br />
 With cmd prompt:<br />
@@ -100,7 +100,7 @@ In this guide the following `deviant.conf` has been used:<br />
 
 ![deviantd deviant.conf](/images/WIN-daemon-conf.png)
 
-5. Start the Cold wallet<br />
+5. Start the Hot wallet<br />
 Browse the directory until you reach `C:\Deviantcoin\scripts`, then execute `Dev-MN.bat`
 
 ![start daemon](/images/WIN-start-daemon.png)
@@ -135,15 +135,15 @@ To check if the start is really succesful you can use this command:<br />
 
 ## Troubleshooting the configuration
 
-File / Parameter | Hot - GUI wallet - deviant-qt | Cold - CLI wallet - deviantd
+File / Parameter | Cold - GUI wallet - deviant-qt | Hot - CLI wallet - deviantd
 ---------------- | ----------------------------- | ----------------------------
 Data Directory | `%APPDATA%\DeviantCore` | `%APPDATA%\DeviantCoreMN`
 deviant.conf | ![GUI dev.conf](/images/WIN-gui-devconf.png) | ![CLI dev.conf](/images/WIN-cli-devconf.png)
 masternode.conf | ![GUI mn.conf](/images/WIN-gui-mnconf-cut.png) | ![CLI mn.conf](/images/WIN-cli-mnconf-cut.png)
 
 Note: The screenshots of masternode.conf files are cutted, you just have to note:<br />
-Hot - GUI wallet - deviant-qt --> filled file [uncutted](/images/WIN-gui-mnconf.png)<br />
-Cold - CLI wallet - deviantd --> default file (not filled with your data) [uncutted](/images/WIN-gui-mnconf.png)<br />
+Cold - GUI wallet - deviant-qt --> filled file [uncutted](/images/WIN-gui-mnconf.png)<br />
+Hot - CLI wallet - deviantd --> default file (not filled with your data) [uncutted](/images/WIN-gui-mnconf.png)<br />
 
 
 
