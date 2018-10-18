@@ -16,3 +16,4 @@ Howto, setup guides and scripts
 
 [Windows - Hot MasterNode under NAT](/windows/Hot-MasterNode-under-NAT.md)<br />
 [Windows - Workaround Hot Masternode issue](/windows/Hot-MasterNode-workaround.md)<br />
+[Troubleshooting](/common/Troubleshooting.md)<br />
