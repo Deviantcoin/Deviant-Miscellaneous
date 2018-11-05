@@ -5,7 +5,7 @@
 ## Prerequisites
 1. The [preparation steps](/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
 2. A Linux VPS is mandatory for this setup. Ubuntu 16.04 is the recommended one. Successful setup have been reported also on Ubuntu 18.04.
-3. A client SSH for your Operating System. In this guide it will be [putty portable for win32](https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe). You can use Terminal on MacOS or gnome-terminal on Linux.
+3. An SSH client for your Operating System. In this guide it will be [putty portable for win32](https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe). You can use Terminal on MacOS or gnome-terminal on Linux.
 
 ## Establish connection
 Open your ssh client then fill it with the parameters of your VPS (ip address and ssh port, default is 22).
@@ -58,7 +58,7 @@ In this step, the script asks you to enter the Masternode private key. This key 
 
 ![mn priv key](/images/mn-priv-key.png)
 
-In this case the key generate during preparation steps has been used
+In this guide, the key generate during preparation steps has been used.
 
 ## Daily update check
 In this step you can enable a daily check for updates. If you type "y", the script will create a directive in crontab.
@@ -71,14 +71,17 @@ After the private key step, the setup is finished.
 ![setup done](/images/mn-setup-done.png)
 
 By the way, before proceed with this guide, you must wait for chain full sync, otherwise you can't start your Masternode<br />
-```devian-cli getinfo```<br />
+```deviant-cli getinfo```<br />
 will give you info about the block number reached.<br />
 ```deviant-cli mnsync status```<br />
 will give you an overview about the sync process.<br />
 
 ![mnsync status](/images/mn-mnsync-status.png)
 
-You're free to proceed when _"IsBlockchainSynced": true,_
+You're free to proceed when the lines<br />
+_"IsBlockchainSynced": true,_<br />
+_"RequestedMasternodeAssets": 999_<br />
+appear in the output.
 
 ## Fill file masternode.conf
 Open file masternode.conf<br />
