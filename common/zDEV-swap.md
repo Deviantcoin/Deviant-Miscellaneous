@@ -1,6 +1,7 @@
 # How to swap zDEV balance
 ## Disable zDEV
 Before swapping your zDEV, you must be sure no more new zDEV will be minted until you update the wallet (coming soon, latest tests are ongoing).<br />
+
 In each wallet you are running, close the wallet then add the parameter <br />
 ```enablezeromint=0``` in file deviant.conf.
 ## Get your zdevseed
