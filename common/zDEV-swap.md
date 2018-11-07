@@ -26,7 +26,7 @@ Open the "Sign message" function, via "File" menu.<br />
 ![zDEV paste seed](/images/zdev-paste-zdevseed.png)
 4. Sign the message.<br />
 ![zDEV sign](/images/zdev-sign-message.png)
-5. Paste the sign on the text editor.<br />
+5. Paste the Signature on the text editor.<br />
 ![zDEV paste sign](/images/zDEV-paste-sign.png)
 ## Get your zDEV balance.<br />
 ![zDEV Balance](/images/zDEV-balance.png)
