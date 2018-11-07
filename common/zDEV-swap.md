@@ -46,8 +46,12 @@ Telegram Username: @username
 ![zDEV mail](/images/zDEV-mail.png)
 The balance claimed with the mail will be checked via zdevseed.
 
-## Last but not least
+## Last but not least:
+
+## DISCLAIMER:
+
 1. The support team will not contact you directly. If you need additional info or support, please write a Private Message to the support team, via Discord, Telegram, or contact them at support@deviantcoin.io. Do not write in public chat in order to avoid attracting attention from scammers.
 2. Do not share your info with anyone. Just use it to fill the criteria in the e-mail.
+3. Keep in mind, that if you share your zdevseed with a scammer and he claims the balance before you do, he will be the owner of the balance. 
 
 
