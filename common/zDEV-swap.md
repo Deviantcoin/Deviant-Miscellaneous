@@ -1,10 +1,10 @@
 # How to swap zDEV balance
 ## Disable zDEV
-Before swapping your zDEV you must be sure no more new zDEV will be minted, until you update the wallet (coming soon, latest tests are ongoing).<br />
-Every wallet you are running, close the wallet then add the parameter <br />
+Before swapping your zDEV, you must be sure no more new zDEV will be minted until you update the wallet (coming soon, latest tests are ongoing).<br />
+In each wallet you are running, close the wallet then add the parameter <br />
 ```enablezeromint=0``` in file deviant.conf.
 ## Get your zdevseed
-Open the debug console via "Tools" menù.<br />
+Open the debug console via "Tools" menu.<br />
 ![zDEV-Console](/images/zdev-debug-console.png)
 1. Fire the command `getzdevseed`. <br />
 2. Copy the zdevseed output. <br />
@@ -14,14 +14,14 @@ Open the debug console via "Tools" menù.<br />
 ![zDEV-Paste-1](/images/zdev-paste-notepad1.png)
 
 ## Sign the message
-Open the "Sign message" function, via "File" menù.<br />
+Open the "Sign message" function, via "File" menu.<br />
 ![zdev sign menù](/images/zdev-sign-menu.png)
 
 1. Select the signing address from "Choose previously used address" function.<br />
 ![zDEV sign 1](/images/zdev-sign-addr.png)
 2. Paste the address on the same text editor you used previously.<br />
 ![zDEV sign 2](/images/zdev-paste-addr.png)
-3. Fill the signing menù with the info collected.<br />
+3. Fill the signing menu with the info collected.<br />
 ![zDEV paste seed](/images/zdev-paste-zdevseed.png)
 4. Sign the message.<br />
 ![zDEV sign](/images/zdev-sign-message.png)
@@ -46,7 +46,7 @@ Telegram Username: @username
 The balance claimed with the mail will be checked via zdevseed.
 
 ## Last but not least
-1. The support team will not contact you. If you need info, write a Private Message to support team, via discord or via telegram, do not write in public chat, avoid to attract attention from scammers.
-2. Do not share your info with anyone, just use them to fill the mail.
+1. The support team will not contact you. If you need additional info or support, please write a Private Message to the support team, via discord or via telegram. Do not write in public chat in order to avoid attracting attention from scammers.
+2. Do not share your info with anyone. Just use it to fill the criteria in the mail.
 
 
