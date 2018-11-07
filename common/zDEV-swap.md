@@ -47,7 +47,7 @@ Telegram Username: @username
 The balance claimed with the mail will be checked via zdevseed.
 
 ## Last but not least
-1. The support team will not contact you. If you need additional info or support, please write a Private Message to the support team, via discord or via telegram. Do not write in public chat in order to avoid attracting attention from scammers.
+1. The support team will not contact you directly. If you need additional info or support, please write a Private Message to the support team, via discord or via telegram. Do not write in public chat in order to avoid attracting attention from scammers.
 2. Do not share your info with anyone. Just use it to fill the criteria in the mail.
 
 
