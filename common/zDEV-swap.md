@@ -5,7 +5,7 @@ Before swapping your zDEV, you must be sure no more new zDEV will be minted unti
 In each wallet you are running, close the wallet, then add the parameter <br />
 ```enablezeromint=0``` in file deviant.conf.<br />
 
-Keep in mind that the parameter can be overwritten in the QT wallet, via "Seetings -> Options -> Enable zDEV automint"<br />
+Keep in mind that the parameter can be overwritten in the QT wallet, via "Settings -> Options -> Enable zDEV automint"<br />
 ![zDEV enable zDEV](/images/zdev-enable-zdev.png)
 
 and via "Privacy -> Mint Zerocoin"<br />
