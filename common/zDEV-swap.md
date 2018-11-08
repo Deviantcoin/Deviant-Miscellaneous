@@ -3,7 +3,14 @@
 Before swapping your zDEV, you must be sure no more new zDEV will be minted until you update the wallet (coming soon - latest tests are ongoing).<br />
 
 In each wallet you are running, close the wallet then add the parameter <br />
-```enablezeromint=0``` in file deviant.conf.
+```enablezeromint=0``` in file deviant.conf.<br />
+
+Keep in mind that the parameter can be overwritten in the QT wallet, via "Seetings -> Options -> Enable zDEV automint"<br />
+![zDEV enable zDEV](/images/zdev-enable-zdev.png)
+
+and via "Privacy -> Mint Zerocoin"<br />
+![zDEV mintzerocoin](/images/zdev-mint-zdev.png)
+
 ## Get your zdevseed
 Open the debug console via "Tools" menu.<br />
 ![zDEV-Console](/images/zdev-debug-console.png)
@@ -13,6 +20,11 @@ Open the debug console via "Tools" menu.<br />
 
 3. Paste the zdevseed on a text editor. <br />
 ![zDEV-Paste-1](/images/zdev-paste-notepad1.png)
+
+If you are using CLI wallet, you can get your zdevseed firing the following command:<br />
+```
+deviant-cli getzdevseed
+```
 
 ## Sign the message
 Open the "Sign message" function, via "File" menu.<br />
@@ -28,6 +40,27 @@ Open the "Sign message" function, via "File" menu.<br />
 ![zDEV sign](/images/zdev-sign-message.png)
 5. Paste the Signature on the text editor.<br />
 ![zDEV paste sign](/images/zDEV-paste-sign.png)
+
+if you are running a CLI wallet, you can get an address to sign with one of following commands:<br />
+```
+deviant-cli listaddressgroupings
+```
+```
+deviant-cli getaccountaddress ""
+```
+
+You can sign the messagge with this command:<br />
+```
+deviant-cli signmessage "deviantaddress" "message"
+```
+According the example given for QT wallet, the command will be: <br />
+```
+deviant-cli signmessage "dXBKqN9aRZbKfpZz2SKF5obDbn8YSzxYYT" "b1ab05a7e2d1715b2b83517559874890f4500445dc5c9f0d9ea4c6ed724a4130"
+```
+![zDEV sign CLI](/images/zdev-sign-cli.png)
+
+
+
 ## Get your zDEV balance.<br />
 ![zDEV Balance](/images/zDEV-balance.png)
 ## Send the mail to `zdev@deviantcoin.io`.<br />
