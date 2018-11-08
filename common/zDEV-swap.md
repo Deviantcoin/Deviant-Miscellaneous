@@ -63,6 +63,12 @@ deviant-cli signmessage "dXBKqN9aRZbKfpZz2SKF5obDbn8YSzxYYT" "b1ab05a7e2d1715b2b
 
 ## Get your zDEV balance.<br />
 ![zDEV Balance](/images/zDEV-balance.png)
+
+If you are running a CLI wallet, you can check your zDEV balance with this command:<br />
+```
+deviant-cli getzerocoinbalance
+```
+
 ## Send the e-mail to `zdev@deviantcoin.io`.<br />
 Using the info collected in the text editor, fill and send an e-mail with following info:<br />
 ```
