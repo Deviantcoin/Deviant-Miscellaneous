@@ -41,7 +41,7 @@ Open the "Sign message" function, via "File" menu.<br />
 5. Paste the Signature on the text editor.<br />
 ![zDEV paste sign](/images/zDEV-paste-sign.png)
 
-if you are running a CLI wallet, you can get an address to sign with one of following commands:<br />
+If you are running a CLI wallet, you can get an address to sign with one of following commands:<br />
 ```
 deviant-cli listaddressgroupings
 ```
@@ -49,7 +49,7 @@ deviant-cli listaddressgroupings
 deviant-cli getaccountaddress ""
 ```
 
-You can sign the messagge with this command:<br />
+You can sign the message with this command:<br />
 ```
 deviant-cli signmessage "deviantaddress" "message"
 ```
@@ -63,7 +63,7 @@ deviant-cli signmessage "dXBKqN9aRZbKfpZz2SKF5obDbn8YSzxYYT" "b1ab05a7e2d1715b2b
 
 ## Get your zDEV balance.<br />
 ![zDEV Balance](/images/zDEV-balance.png)
-## Send the mail to `zdev@deviantcoin.io`.<br />
+## Send the e-mail to `zdev@deviantcoin.io`.<br />
 Using the info collected in the text editor, fill and send an e-mail with following info:<br />
 ```
 To: zdev@deviantcoin.io
