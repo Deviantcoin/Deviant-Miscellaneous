@@ -69,15 +69,15 @@ If you are running a CLI wallet, you can check your zDEV balance with this comma
 deviant-cli getzerocoinbalance
 ```
 ## Check your discord ID
-The discord ID is your unique identifier on discord network. It isn't your nickname, that can be changed or cloned, it is a unique number. To get your Discord ID you need to enable the developer mode.<br />
+The Discord ID is your unique identifier on the Discord network. It isn't your nickname, that can be changed or cloned, it is a unique number. To get your Discord ID, you need to enable the Developer Mode.<br />
 To enable the developer mode open your settings.<br />
 ![zDEV DISCORD settings](/images/zdev-discord-settings.png)
 
-The "Developer mode" is available in the Appareance menù.<br />
+The "Developer Mode" is available in the Appareance menu.<br />
 
 ![zdev dev mode](/images/zdev-discord-developer-mode.png)
 
-Once the developer mode is enabled, this information is available via the right click of your mouse, on your name.<br />  
+Once the Developer Mode is enabled, this information is available via the right-click of your mouse, on your name.<br />  
 ![zdev id](/images/zdev-discord-id.png)
 
 More details are available in the [Discord article](https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
