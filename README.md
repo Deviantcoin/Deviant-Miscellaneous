@@ -2,6 +2,8 @@
 # Deviant-Miscellaneous
 Howto, setup guides and scripts
 
+[How to swap zDEV balance](/common/zDEV-swap.md)<br />
+
 [QT wallet - Preparation steps to run a Deviant Masternode](/common/Preparation-steps-for-MN.md)<br />
 
 [Wallet - Setup wallet](/common/Setup_wallet.md)<br />
