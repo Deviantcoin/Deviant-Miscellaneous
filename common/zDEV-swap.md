@@ -97,7 +97,7 @@ Discord ID: 123456789123456789
 Telegram Username: @username
 ```
 ![zDEV mail](/images/zDEV-mail.png)
-The balance claimed with the mail will be checked via zdevseed.
+The balance claimed within the e-mail will be checked via zdevseed.
 
 ## Last but not least:
 
