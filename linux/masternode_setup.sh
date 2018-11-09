@@ -27,9 +27,9 @@ function apt_update() {
 echo
 echo -e "${GREEN}Checking and installing operating system updates. It may take awhile ...${NC}"
 apt-get update >/dev/null 2>&1
-apt-get -y dist-upgrade >/dev/null 2>&1 
-apt-get -y install zip unzip curl >/dev/null 2>&1
-apt-get -y autoremove >/dev/null 2>&1
+DEBIAN_FRONTEND=noninteractive apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" -y dist-upgrade >/dev/null 2>&1
+DEBIAN_FRONTEND=noninteractive apt-get -y install zip unzip curl >/dev/null 2>&1
+DEBIAN_FRONTEND=noninteractive apt-get -y autoremove >/dev/null 2>&1
 if [[ -f /var/run/reboot-required ]]
   then echo -e "${RED}Warning:${NC}${GREEN}some updates require a reboot${NC}"
   echo -e "${GREEN}Do you want to reboot at the end of masternode installation process?${NC}"
@@ -62,7 +62,8 @@ if [[ $? -ne 0 ]]
   y*)
    ORA=$(echo $((1 + $RANDOM % 23)))
    MIN=$(echo $((1 + $RANDOM % 59)))
-   base64 -d <<<"H4sICAPes1sAA3VwZC1kZXZpYW50LnNoAK1TW2/aMBR+z684zSLSbgou61pNm9IKQdiQykWBqaJVhUJiwGtip4kD7Pbfd0xCuEzwNOUh8YnPd76L/eaMTBgnEy+da8NOf9zq3Tcd1zbOoxdJoxis4EJr9Nrd8fDLo23OpYzTT4TMmJxnk6ovItKkC+Zx6QtEefDCkEqSeEsSeamkCQnowrqqXuJTs0LGs5W1+ngzvvlQ/cliMwdu1p1Or2ubQQ4UFOXGfbusWX7IinK/PvxqmyRLExIK3wvX7It/3XrHsYuWvPLY7qMU6s8FGBsV8Bu85QtYLZOYYP6KE8YlGN3WH/NC0zQ/AGPrA9wqBYRnYQjvbys1bTmjEqzXLZrGpvD0BMYdWJzCJTw/fwY5p1yD9VSLgukkiUggEEseCi9gfAZcBLRq4pYVk1DTpqxAsaYFsFJp7Lizhc04OgfW92IjCoS3ezsPGXea14NvHVSjMg2u0yw6NiP3pXSkpgzJu7vOw2H3iZ6YBWIKJ0m5Ddu4K0TrRklRhzO7XONQHSoVXLsNHY183XMXSn/1gRQxJBnnylrGU+lxn6a62jNF41OaLJhP8Q8Y5+kPPJaRL0NkPktoXNBUJ6fUAhsxoNQgCmYH28ZUjTM2qIfK1rs5Ve80pDjgSn26zmBYd4eD0aBpjzTAwMvMT8pXevdyF6eiL1Z4c/Da7qT8D0l/HokA3q2OnYTDMiKWbHek6GAj35Giqa1ZbjNxKcaQSJVIcSE3Oahg/kcsB5ngsOOhrBPJTf8LUsovN/AEAAA=" | gunzip > $COIN_PATH/upd-deviant.sh
+   base64 -d <<<"H4sICChy4FsAA3VwZC1kZXZpYW50LnNoAI1TW2/aMBR+z684zSLSbjIu61pNm9IKQdiQykWBqaJVhUJiwGvipIkD7Pbfd0xCuEygKQ+JT3y+813sN2d0wgWduOlcG3b641bvvmk7lnEevkgWxkD8C63Ra3fHwy+PljmXMk4/UTrjcp5Nql4U0iZbcFdIL0KUBzcImKSJu6Shm0qWUJ8tyFX1Ep8aCbjIVmT18WZ886H6k8dmDtys251e1zL9HMgvyo37dlkjXsCLcr8+/GqZNEsTGkSeG6zZF/+69Y5tFS155bHdRynMm0dgbFTAb3CXL0BaJjXB/BUnXEgwuq0/5oWmaZ4PxtYHuFUKqMiCAN7fVmracsYkkNctmsan8PQExh0QweASnp8/g5wzocF6KmFg2kkSJeBHSxFErs/FDETks6qJW1ZcQk2b8gKFTAtgpdLYcWcLmwl0Dsj3YiMKhLd7Ow8Zd5rXg28dVKMy9a/TLDw2I/eldKSmDMm7u/bDYfeJnpj70RROknIalnFXiNaNkqIOZ1a5xqE6VCq4dho6Gvm65y6U/uoDGcWQZEIoa7lIpSs8lupqzxSNT1my4B7DP2Ccpz/wWIaeDJD5LGFxQVOdnFILbMSAUoMomB1sG1M1ztigHipb7xZMvdOA4YAr9enYg2HdGQ5Gg6Y10gADLzM/KV/p3cs9OhV9scKbg9d2J+V/SHrzMPLh3erYSTgsI2LJdkeKDhbyHSma2prlNhOHYQyJVIkUF3KTgwrmRCzE/f9kDmLBecdzWYeS+/4XL6djvvMEAAA=" | gunzip > $COIN_PATH/upd-deviant.sh
+   chmod +x $COIN_PATH/upd-deviant.sh
    crontab -l > /tmp/cron2upd
    echo "$MIN $ORA * * * $COIN_PATH/upd-deviant.sh" >> /tmp/cron2upd
    crontab /tmp/cron2upd
@@ -196,7 +197,7 @@ function download_node() {
     then unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
     chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
     if [[ "$RESTARTSYSD" == "Y" ]]
-    then for service in $(systemctl | grep $COIN_NAME | awk '{ print $1 }'); do systemctl start $service >/dev/null 2>&1; done
+    then for service in $(systemctl -a | grep $COIN_NAME | awk '{ print $1 }'); do systemctl start $service >/dev/null 2>&1; done
     fi
     sleep 3
    fi
