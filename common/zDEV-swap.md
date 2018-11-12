@@ -68,6 +68,20 @@ If you are running a CLI wallet, you can check your zDEV balance with this comma
 ```
 deviant-cli getzerocoinbalance
 ```
+## Check your Discord ID
+The Discord ID is your unique identifier on the Discord network. It isn't your nickname, that can be changed or cloned, it is a unique number. To get your Discord ID, you need to enable the Developer Mode.<br />
+
+To enable the developer mode open your settings.<br />
+![zDEV DISCORD settings](/images/zdev-discord-settings.png)
+
+The "Developer Mode" is available in the Appareance menu.<br />
+
+![zdev dev mode](/images/zdev-discord-developer-mode.png)
+
+Once the Developer Mode is enabled, this information is available via the right-click of your mouse, on your name.<br />  
+![zdev id](/images/zdev-discord-id.png)
+
+More details are available in the [Discord article](https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
 
 ## Send the e-mail to `zdev@deviantcoin.io`.<br />
 Using the info collected in the text editor, fill and send an e-mail with following info:<br />
@@ -83,7 +97,7 @@ Discord ID: 123456789123456789
 Telegram Username: @username
 ```
 ![zDEV mail](/images/zDEV-mail.png)
-The balance claimed with the mail will be checked via zdevseed.
+The balance claimed within the e-mail will be checked via zdevseed.
 
 ## Last but not least:
 
