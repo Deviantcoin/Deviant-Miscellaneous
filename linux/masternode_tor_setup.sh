@@ -198,12 +198,18 @@ function download_node() {
    echo -e 'Error downloading node. Please contact support'
    exit 1
   fi
-  if [[ -f $COIN_PATH$COIN_DAEMON ]]; then
-  unzip -j $COIN_ZIP *$COIN_DAEMON >/dev/null 2>&1
-  MD5SUMOLD=$(md5sum $COIN_PATH$COIN_DAEMON | awk '{print $1}')
-  MD5SUMNEW=$(md5sum $COIN_DAEMON | awk '{print $1}')
-  pidof $COIN_DAEMON >/dev/null 2>&1
-  RC=$?
+  if [[ -f $COIN_PATH$COIN_DAEMON ]]; then case $COIN_ZIP in
+  *.tar.gz*)
+    tar xzvf $COIN_ZIP
+    find . -name $COIN_DAEMON | xargs mv -t $COIN_PATH >/dev/null 2>&1
+    find . -name $COIN_CLI | xargs mv -t $COIN_PATH >/dev/null 2>&1
+    chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+    ;;
+  *.zip*)
+    unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
+    chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+    ;;
+  esac
    if [[ "$MD5SUMOLD" != "$MD5SUMNEW" && "$RC" -eq 0 ]]; then
      echo -e 'Those daemon(s) are about to die'
      echo -e $(ps axo cmd:100 | grep $COIN_DAEMON | grep -v grep)
@@ -220,8 +226,18 @@ function download_node() {
     fi
     sleep 3
    fi
-  else unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
-  chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+  else case $COIN_ZIP in
+  *.tar.gz*)
+    tar xzvf $COIN_ZIP
+    find . -name $COIN_DAEMON | xargs mv -t $COIN_PATH >/dev/null 2>&1
+    find . -name $COIN_CLI | xargs mv -t $COIN_PATH >/dev/null 2>&1
+    chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+    ;;
+  *.zip*)
+    unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
+    chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+    ;;
+  esac
   fi
   cd ~ >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
