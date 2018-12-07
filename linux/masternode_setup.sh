@@ -190,6 +190,8 @@ function download_node() {
      echo -e $(ps axo cmd:100 | grep $COIN_DAEMON | grep -v grep)
      echo -e 'If systemd service or a custom check is not implemented, take care of their restart'
      for service in $(systemctl | grep $COIN_NAME | awk '{ print $1 }'); do systemctl stop $service >/dev/null 2>&1; done
+     find . -name $COIN_DAEMON | xargs mv -t $COIN_PATH >/dev/null 2>&1
+     find . -name $COIN_CLI | xargs mv -t $COIN_PATH >/dev/null 2>&1
      sleep 3
      RESTARTSYSD=Y
    fi
