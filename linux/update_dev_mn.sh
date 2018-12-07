@@ -35,6 +35,8 @@ function download_node() {
      echo -e 'If systemd service or a custom check is not implemented, take care of their restart'
      for service in $(systemctl | grep $COIN_NAME | awk '{ print $1 }'); do systemctl stop $service >/dev/null 2>&1; done
      sleep 3
+     find . -name $COIN_DAEMON | xargs mv -t $COIN_PATH >/dev/null 2>&1
+     find . -name $COIN_CLI | xargs mv -t $COIN_PATH >/dev/null 2>&1
      RESTARTSYSD=Y
    fi
    if [[ "$MD5SUMOLD" != "$MD5SUMNEW" ]]
