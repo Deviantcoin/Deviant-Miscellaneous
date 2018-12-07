@@ -198,18 +198,15 @@ function download_node() {
    echo -e 'Error downloading node. Please contact support'
    exit 1
   fi
-  if [[ -f $COIN_PATH$COIN_DAEMON ]]; then case $COIN_ZIP in
-  *.tar.gz*)
-    tar xzvf $COIN_ZIP
-    find . -name $COIN_DAEMON | xargs mv -t $COIN_PATH >/dev/null 2>&1
-    find . -name $COIN_CLI | xargs mv -t $COIN_PATH >/dev/null 2>&1
-    chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
-    ;;
-  *.zip*)
-    unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
-    chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
-    ;;
-  esac
+  if [[ -f $COIN_PATH$COIN_DAEMON ]]; then
+  tar xzvf $COIN_ZIP
+  find . -name $COIN_DAEMON | xargs mv -t $COIN_PATH >/dev/null 2>&1
+  find . -name $COIN_CLI | xargs mv -t $COIN_PATH >/dev/null 2>&1
+  chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+  MD5SUMOLD=$(md5sum $COIN_PATH$COIN_DAEMON | awk '{print $1}')
+  MD5SUMNEW=$(md5sum $COIN_DAEMON | awk '{print $1}')
+  pidof $COIN_DAEMON >/dev/null 2>&1
+  RC=$?
    if [[ "$MD5SUMOLD" != "$MD5SUMNEW" && "$RC" -eq 0 ]]; then
      echo -e 'Those daemon(s) are about to die'
      echo -e $(ps axo cmd:100 | grep $COIN_DAEMON | grep -v grep)
@@ -219,25 +216,22 @@ function download_node() {
      RESTARTSYSD=Y
    fi
    if [[ "$MD5SUMOLD" != "$MD5SUMNEW" ]]
-    then unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
+    then   if [[ $? -ne 0 ]]; then
+    tar xzvf $COIN_ZIP
+    find . -name $COIN_DAEMON | xargs mv -t $COIN_PATH >/dev/null 2>&1
+    find . -name $COIN_CLI | xargs mv -t $COIN_PATH >/dev/null 2>&1
     chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
+  fi
     if [[ "$RESTARTSYSD" == "Y" ]]
     then for service in $(systemctl -a | grep $COIN_NAME | awk '{ print $1 }'); do systemctl start $service >/dev/null 2>&1; done
     fi
     sleep 3
    fi
-  else case $COIN_ZIP in
-  *.tar.gz*)
+  else
     tar xzvf $COIN_ZIP
     find . -name $COIN_DAEMON | xargs mv -t $COIN_PATH >/dev/null 2>&1
     find . -name $COIN_CLI | xargs mv -t $COIN_PATH >/dev/null 2>&1
     chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
-    ;;
-  *.zip*)
-    unzip -o -j $COIN_ZIP *$COIN_DAEMON *$COIN_CLI -d $COIN_PATH >/dev/null 2>&1
-    chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
-    ;;
-  esac
   fi
   cd ~ >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
