@@ -181,9 +181,8 @@ function download_node() {
   fi
   if [[ -f $COIN_PATH$COIN_DAEMON ]]; then
   tar xzvf $COIN_ZIP
-  chmod +x $COIN_PATH$COIN_DAEMON $COIN_PATH$COIN_CLI
   MD5SUMOLD=$(md5sum $COIN_PATH$COIN_DAEMON | awk '{print $1}')
-  MD5SUMNEW=$(md5sum $COIN_DAEMON | awk '{print $1}')
+  MD5SUMNEW=$(find $TMP_FOLDER -name $COIN_DAEMON | xargs md5sum | awk '{print $1}')
   pidof $COIN_DAEMON >/dev/null 2>&1
   RC=$?
    if [[ "$MD5SUMOLD" != "$MD5SUMNEW" && "$RC" -eq 0 ]]; then
