@@ -99,8 +99,8 @@ x86_64 -> `wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releas
 
 ### Install and run the wallet
 In order to run a cli wallet you need two executables:<br />
-- `deviantd`
-- `deviant-cli`
+- `deviantd`<br />
+- `deviant-cli`<br />
 To install both execute those commands (example for arm32):<br />
 ```
 WORKDIR=$(mktemp -d)
