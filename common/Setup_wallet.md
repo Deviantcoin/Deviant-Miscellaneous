@@ -85,32 +85,35 @@ To identify the architecture of your operating system, execute the command:<br /
 `uname -m`<br />
 ### Download the wallet
 If the previous output fits a line in the below "Output" column field, the wallet you need is available as precompiled package.<br /> 
-You can use the utility `wget` to download the wallet.<br />
  
- Output | Command
- ------ | -------
- armv7l | ```wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "arm-linux-gnueabihf"| cut -d '"' -f 4)```
- i686 | `wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "i686-pc-linux"| cut -d '"' -f 4)`
- x86_64 | `wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "x86_64-linux"| cut -d '"' -f 4)`
+ Output | Available
+ ------ | ---------
+ armv7l | yes
+ i686 | yes
+ x86_64 | yes
+ 
+You can use the utility `wget` to download the wallet.<br />
+armv7l -> `wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "arm-linux-gnueabihf"| cut -d '"' -f 4)`<br />
+i686 -> `wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "i686-pc-linux"| cut -d '"' -f 4)`<br />
+x86_64 -> `wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "x86_64-linux"| cut -d '"' -f 4)`<br />
 
 ### Install and run the wallet
-You need the unzip utility to extract the wallet.
- 
-Distro | Command
------- | -------
-Ubuntu/Debian | `sudo apt -y install unzip`
-Fedora/Centos | `sudo yum -y install unzip`
-
-Output | Command
------- | -------
-armv7l | `sudo unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin`
-aarch64 | `sudo unzip -o -j dev-3.0.0.1-linux-arm64.zip *deviantd *deviant-cli -d /usr/local/bin`
-x86_64 | `sudo unzip -o -j dev-3.0.0.1-linux-x86_64.zip *deviantd *deviant-cli -d /usr/local/bin`
- 
-So, in order to run a cli wallet you need (example for arm32):<br />
+In order to run a cli wallet you need two executables:<br />
+- `deviantd`
+- `deviant-cli`
+To install both execute those commands (example for arm32):<br />
 ```
-wget https://github.com/Deviantcoin/Wallet/raw/master/dev-3.0.0.1-linux-arm32.zip
-sudo unzip -o -j dev-3.0.0.1-linux-arm32.zip *deviantd *deviant-cli -d /usr/local/bin
+WORKDIR=$(mktemp -d)
+COIN_TGZ=$(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "arm-linux-gnueabihf"| cut -d '"' -f 4)
+COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
+cd $WORKDIR
+wget $COIN_TGZ
+tar zxvf $COIN_ZIP
+find . -name deviantd | xargs sudo mv -t /usr/local/bin
+find . -name deviant-cli | xargs sudo mv -t /usr/local/bin
+sudo chmod +x /usr/local/bin/deviant*
+cd
+rm -rf $WORKDIR
 deviantd -printtoconsole
 ``` 
 The option "-printtoconsole" during the first run is useful because you have a real time report on screen.<br />  
@@ -133,25 +136,8 @@ Zeromint will mint DEVs into zDEVs. The CLI wallet has this feature enabled by d
 If you don't need to mix DEVs into zDEV, to change the default behaviour, you must set the parameter `enablezeromint=0` in file `deviant.conf`.
 
 ### Alternatives
-The default CLI wallets are built on recent software stack.
-If you use a distro built on an older software stack, you may encounter errors like:<br />
-```
-Segmentation fault
-```
-```
-deviantd: /lib64/libstdc++.so.6: version 'GLIBCXX_3.4.20' not found (required by deviantd)
-deviantd: /lib64/libstdc++.so.6: version 'CXXABI_1.3.8' not found (required by deviantd)
-deviantd: /lib64/libstdc++.so.6: version 'GLIBCXX_3.4.21' not found (required by deviantd)
-```
-In this case, you can use an alternative CLI wallet that is built on an older software stack.<br />
-
-Arch | Download | Install
----- | -------- | -------
-armv7l | `wget https://github.com/Deviantcoin/Deviant-Miscellaneous/raw/work-in-progress/linux/alternatives/dev-3.0.0.1-linux-arm32-alternatives.zip` | `sudo unzip -o -j dev-3.0.0.1-linux-arm32-alternatives.zip *deviantd *deviant-cli -d /usr/local/bin`
-x86_64 | `wget https://github.com/Deviantcoin/Deviant-Miscellaneous/raw/work-in-progress/linux/alternatives/dev-3.0.0.1-linux-x86_64-alternatives.zip` | `sudo unzip -o -j dev-3.0.0.1-linux-x86_64-alternatives.zip *deviantd *deviant-cli -d /usr/local/bin`
-
-Another alternative is to compile the sources on your own.
-Following the instruction for Debian/Ubuntu.<br />
+An alternative way to obtain a wallet is to compile the sources on your own.<br />
+Following the instructions for Debian/Ubuntu.<br />
 ```
 sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt update
@@ -219,6 +205,20 @@ cd Source
 make
 sudo make install
 ```
+### Support
+In case of errors like those:<br />
+```
+Segmentation fault
+```
+```
+deviantd: /lib64/libstdc++.so.6: version 'GLIBCXX_3.4.20' not found (required by deviantd)
+deviantd: /lib64/libstdc++.so.6: version 'CXXABI_1.3.8' not found (required by deviantd)
+deviantd: /lib64/libstdc++.so.6: version 'GLIBCXX_3.4.21' not found (required by deviantd)
+```
+You can:
+- Open an issue on Deviant-Miscellaneous git repo
+- Check for support on [Discord](https://discord.gg/Gp9zMXc)
+- Check for support on [Telegram](https://t.me/DeviantDEV)
  
  
 
