@@ -2,8 +2,8 @@
 ## Setup QT wallet on Windows
 ### Download wallet
 The wallet is available on [github](https://github.com/Deviantcoin/Source/releases).
-Search for latest release, then download the wallet that matches your Windows arch.<br />
-You will find four lines for windows.<br />
+Search for the latest release, then download the wallet that matches your Windows arch.<br />
+You will find four lines for Windows.<br />
 
 ![latest](/images/latest-win.png)
 
@@ -13,12 +13,12 @@ You will find four lines for windows.<br />
 - `deviant-<release>-win64.zip`
 
 Win32 wallet can be executed also on win64; win64 wallet can be executed only on win64.<br />
-The exe packages, are typical windows installer setup files, the double click will execute the setupe wizard.<br />
-The zip packages contains the standalone executables that can be executed without a windows setup.</ br>
-Both ways will be described here.</ br>
+The exe packages are typical Windows installer setup files. Double-clicking them will execute the setup wizard.<br />
+The zip packages contain the standalone executables that can be executed without a Windows setup.<br />
+Both ways will be described here.<br />
 
 ### Execute the setup
-Executing the setup file, will install the wallet in the windows way (next -> next -> next).
+Executing the setup file will install the wallet in the Windows way (next -> next -> next).
 
 ![setup1](/images/setup1.png)
 
@@ -29,7 +29,7 @@ The first time you execute the wallet, you have to set the default directory.
 ![setup dir](/images/setup-dir.png)
 
 The default installation path is `%APPDATA%\DeviantCore%`. <br />
-Once the directory has been choosen, the wallet will load its data and will start the sync of the blockchain.
+Once the directory has been chosen, the wallet will load its data and will start the sync of the blockchain.
 
 ![first sync](/images/first-sync.png)
 
@@ -52,23 +52,23 @@ addnode=109.10.53.168
 addnode=178.239.54.249
 ```
 ### Execute the standalone executables
-The windows zip packages contains the standalone executables and the installer.<br />
+The Windows zip packages contain the standalone executables and the installer.<br />
 You can extract it with the default utility "Compressed folder". In this example, the package will be extracted in C:\Deviantcoin
 
 ![extract1](/images/exctract1.png)
 
 ![extract2](/images/extract2.png)
 
-According to your Windows release, you may need to unlock the executables - every one of them.<br />
-Right click on the file --> set flag on "Unblock" in General tab (see the example below).
+Depending on your Windows release, you may need to unlock the executables - every one of them.<br />
+Right=click on the file --> checkmark the "Unblock" box in the General tab (see the example below).
 
 ![unblock](/images/unblock.png)
 
-Just execute the file `deviant-qt.exe` from exctracting folder to run the wallet.<br />
+Just execute the file `deviant-qt.exe` from the extracted folder to run the wallet.<br />
 
 ### Encrypting the wallet
 When the sync is finished, it is recommended to encrypt the wallet before transfering funds to it.<br />
-This action will enhance the security of your wallet. Once the wallet is encrypted. you need to unlock it before moving funds.
+This action will enhance the security of your wallet. Once the wallet is encrypted, you need to unlock it before moving funds.
 
 Step | On screen
 ---- | ---------
@@ -80,11 +80,11 @@ Read warning info! | ![warning](/images/warning-encrypt-wallet.png)
 ## Setup Cli wallet Linux
 ### Identify your architecture
 The wallets are available on [github](https://github.com/Deviantcoin/Source/releases).<br />
-The precompiled Deviant cli wallet can run on several kind of Linux builds.<br />
-To identify the architecture of your operating system, execute the command:<br />
+The precompiled Deviant cli wallet can run on several kinds of Linux builds.<br />
+To identify the architecture of your operating system (OS), execute the command:<br />
 `uname -m`<br />
 ### Download the wallet
-If the previous output fits a line in the below "Output" column field, the wallet you need is available as precompiled package.<br /> 
+If the previous output fits a line in the below "Output" column field, the wallet you need is available as a precompiled package.<br /> 
  
  Output | Available
  ------ | ---------
@@ -98,11 +98,11 @@ i686 -> `wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releases
 x86_64 -> `wget $(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "x86_64-linux"| cut -d '"' -f 4)`<br />
 
 ### Install and run the wallet
-In order to run a cli wallet you need two executables:<br />
+In order to run a cli wallet, you need two executables:<br />
 - `deviantd`<br />
 - `deviant-cli`<br />
 
-To install both execute those commands (example for arm32):<br />
+To install both, execute those commands (example for arm32):<br />
 ```
 WORKDIR=$(mktemp -d)
 COIN_TGZ=$(curl -s https://api.github.com/repos/Deviantcoin/Source/releases/latest | grep browser_download_url | grep -e "arm-linux-gnueabihf"| cut -d '"' -f 4)
@@ -119,26 +119,26 @@ deviantd -printtoconsole
 ``` 
 The option "-printtoconsole" during the first run is useful because you have a real time report on screen.<br />  
 
-Tip: after the first sync, to run the wallet in background, you can execute it with command:<br />
+Tip: after the first sync, to run the wallet in the background, you can execute it with this command:<br />
 ```deviantd -daemon```
 
 ### Encrypting the wallet
 When the sync is finished, it is recommended to encrypt the wallet before transfering funds to it.<br />
 This action will enhance the security of your wallet. Once the wallet is encrypted, you need to unlock it before moving funds.
-To encrypt the wallet you use deviant-cli utility:
+To encrypt the wallet, you use the deviant-cli utility:
 ```
 deviant-cli encryptwallet '<your passphrase>'
 ```
-Tip: to avoid to save `'<your passphrase>'` in the history, press space before the commands that require `'<your passphrase>'`.
-When wallet encryption ends, the wallet will close itself, so you will need to start it again.
+Tip: to avoid saving `'<your passphrase>'` in the history, press space before the commands that require `'<your passphrase>'`.
+When the wallet encryption ends, the wallet will close itself, so you will need to start it again.
 
-Before you transfer funds, you must be aware about zeromint.
+Before you transfer funds, you must be aware about the zeromint feature.
 Zeromint will mint DEVs into zDEVs. The CLI wallet has this feature enabled by default.
-If you don't need to mix DEVs into zDEV, to change the default behaviour, you must set the parameter `enablezeromint=0` in file `deviant.conf`.
+If you don't need to mix DEVs into zDEV, to change the default behaviour, you must set the parameter `enablezeromint=0` in the `deviant.conf` file.
 
 ### Alternatives
 An alternative way to obtain a wallet is to compile the sources on your own.<br />
-Following the instructions for Debian/Ubuntu.<br />
+The following instructions are for compiling a wallet with Debian/Ubuntu.<br />
 ```
 sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt update
@@ -171,7 +171,7 @@ make
 sudo make install
 ```
 
-Following the instructions for Raspbian/Ubuntu:<br />
+The following instructions are for compiling a wallet with Raspbian/Ubuntu:<br />
 ```
 sudo apt install git \
  build-essential \
@@ -207,7 +207,7 @@ make
 sudo make install
 ```
 ### Support
-In case of errors like those:<br />
+In case of errors like these:<br />
 ```
 Segmentation fault
 ```
