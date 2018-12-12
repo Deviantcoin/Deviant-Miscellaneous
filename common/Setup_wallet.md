@@ -68,7 +68,7 @@ Just execute the file `deviant-qt.exe` from the extracted folder to run the wall
 
 ### Encrypting the wallet
 When the sync is finished, it is recommended to encrypt the wallet before transfering funds to it.<br />
-This action will enhance the security of your wallet. Once the wallet is encrypted. you need to unlock it before moving funds.
+This action will enhance the security of your wallet. Once the wallet is encrypted, you need to unlock it before moving funds.
 
 Step | On screen
 ---- | ---------
