@@ -60,7 +60,7 @@ You can extract it with the default utility "Compressed folder". In this example
 ![extract2](/images/extract2.png)
 
 Depending on your Windows release, you may need to unlock the executables - every one of them.<br />
-Right=click on the file --> checkmark the "Unblock" box in the General tab (see the example below).
+Right-click on the file --> checkmark the "Unblock" box in the General tab (see the example below).
 
 ![unblock](/images/unblock.png)
 
