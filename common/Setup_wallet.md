@@ -84,7 +84,7 @@ The precompiled Deviant cli wallet can run on several kinds of Linux builds.<br 
 To identify the architecture of your operating system (OS), execute the command:<br />
 `uname -m`<br />
 ### Download the wallet
-If the previous output fits a line in the below "Output" column field, the wallet you need is available as precompiled package.<br /> 
+If the previous output fits a line in the below "Output" column field, the wallet you need is available as a precompiled package.<br /> 
  
  Output | Available
  ------ | ---------
