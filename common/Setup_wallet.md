@@ -14,8 +14,8 @@ You will find four lines for Windows.<br />
 
 Win32 wallet can be executed also on win64; win64 wallet can be executed only on win64.<br />
 The exe packages are typical Windows installer setup files. Double-clicking them will execute the setup wizard.<br />
-The zip packages contain the standalone executables that can be executed without a Windows setup.</ br>
-Both ways will be described here.</ br>
+The zip packages contain the standalone executables that can be executed without a Windows setup.<br />
+Both ways will be described here.<br />
 
 ### Execute the setup
 Executing the setup file will install the wallet in the Windows way (next -> next -> next).
