@@ -12,7 +12,7 @@ In this guide, you will be driven to setup a Hot / Cold Masternode on the very s
 ## Cold wallet (GUI wallet)
 ### Case 1: You already have a running deviant-qt wallet.
 Probably, because you are checking this workaround, you already installed the wallet.
-In this case, close your wallet. Rename your deviant.conf in deviant.conf.bak. Create a new deviant.conf with only a line:<br />
+In this case, close your wallet. Rename your deviant.conf in deviant.conf.bak. Create a new deviant.conf with only two lines:<br />
 ```
 listen=0
 rpcport=22619
@@ -50,7 +50,7 @@ The values above are explained in the Preparation steps, except `{YOUR PUBLIC IP
 You can check your public ip by opening the url: [http://ident.me](http://ident.me).
 
 ## Hot wallet (CLI wallet)
-With the Hot wallet, we will use the `deviantd.exe` that is shipped within the wallet package. To setup the deamon without being in conflict with the wallet follow these steps:
+With the Hot wallet, we will use the `deviantd.exe` that is shipped within the wallet package. To setup the deamon without being in conflict with the wallet, follow these steps:
 
 1. Create a new data directory<br />
 With cmd prompt:<br />
@@ -64,7 +64,7 @@ With the explorer:<br />
 
 3. Create the management scripts:<br />
 3.1. Start daemon script<br />
-Open the notepad, paste these lines in it:<br />
+Open the notepad, and paste these lines in it:<br />
 ```
 C:\Deviantcoin\dev-3.0.0.1-win64\deviantd.exe -conf=%APPDATA%\DeviantCoreMN\deviant.conf -datadir=%APPDATA%\DeviantCoreMN
 ```
@@ -76,7 +76,7 @@ Note: Select "All files" in "Save as type:", otherwise it will be saved as "txt"
 ![Save as Dev-MN](/images/WIN-dev-mn.bat.png)
 
 3.2 deviant-cli script<br />
-Open the notepad, paste these lines in it:<br />
+Open the notepad, and paste these lines in it:<br />
 ```
 C:\Deviantcoin\dev-3.0.0.1-win64\deviant-cli.exe -conf=%APPDATA%\DeviantCoreMN\deviant.conf -datadir=%APPDATA%\DeviantCoreMN %*
 ```
@@ -88,7 +88,7 @@ Note: select "All files" in "Save as type:", otherwise, it will be saved as "txt
 ![Save as cli](/images/WIN-cli.bat.png)
 
 4. Fill deviant.conf<br />
-Open the notepad, fill it with info for your system using this template:<br />
+Open the notepad, and fill it with info for your system using this template:<br />
 ```
 masternode=1
 masternodeprivkey={MN PRIV KEY} 
@@ -110,7 +110,7 @@ This action will open a window. Do not close it, otherwise, you will kill the da
 ![daemon window](/images/WIN-daemon-window.png)
 
 6. Check the sync process<br />
-By this step, the daemon is running. You need to wait for it to fully sync before start the masternode. You can check the sync status with following command:<br />
+By this step, the daemon is running. You need to wait for it to fully sync before starting the masternode. You can check the sync status with following command:<br />
 ```deviant-cli.bat mnsync status```
 
 ![cli mnsync](/images/WIN-cli-status.png)
@@ -124,14 +124,14 @@ Use the "Start Missing" function. Insert the password when needed.
 ![start missing](/images/WIN-start-missing.png)
 
 ## Check masternode status
-To check if the start is really succesful, you can use this command:<br />
+To check to see if the start is really succesful, you can use this command:<br />
 ```deviant-cli.bat masternode status```
 
 ![masternode status](/images/WIN-mn-status.png)
 
 ## Do not forget!
 1. Enable [Windows firewall](/windows/windows-firewall.md)
-2. Unlock executables (right-click on every deviant* executables in folder C:\Deviantcoin\dev-3.0.0.1-win64,then flag the "unlock" checkbox).
+2. Unlock executables (right-click on every deviant* executables in folder C:\Deviantcoin\dev-3.0.0.1-win64, then flag the "unlock" checkbox).
 
 ## Troubleshooting the configuration
 
