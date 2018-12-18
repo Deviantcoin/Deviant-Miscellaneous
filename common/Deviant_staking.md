@@ -3,7 +3,7 @@
 ### Prerequisites
 1. The wallet has been setup (verify [here](/common/Setup_wallet.md))
 ### Creating a Staking Address
-Open the receiving address menu from your wallet.<br />
+Open the Receiving addresses menu from your wallet.<br />
 
 ![receiving address](/images/rec-address.png)
 
@@ -17,7 +17,7 @@ The Coin Control feature allows the user to select the input that must be used t
 <br />
 ![No Coin Control](/images/noCoinControl.png)
 <br />
-The option to enable the Coin Control feature is in the Gui Wallet. You can activate it by hitting<br />
+The option to enable the Coin Control feature is in the GUI Wallet. You can activate it by hitting<br />
 Settings -> Options -> Wallet<br />
 
 Settings Options | Wallet tab
@@ -42,7 +42,7 @@ Set flag in "Split UTXO" field, then write in the editable field the number (an 
 
 ![UTXO](/images/utxo.png)
 
-Note: There is not a formula to calculate the optimal size of inputs. It depends on the values staking on the network. Also optimal size is not a constant and it changes with time.<br />
+Note: There is no formula to calculate the optimal size of inputs. It depends on the values staking on the network. Also, optimal size is not a constant and it changes with time.<br />
 Sharing experience about staking with other users may improve the staking experience.
 ### Start staking
 Once the inputs setup is finished, in order to stake you have two prerequisites:
@@ -108,7 +108,7 @@ Step | Example
 2.3 | ![setaccount](/images/cli-set-account.png)
 2.3 | ![sendfrom2](/images/cli-send-others.png)
 
-There is not a formula to calculate the optimal size of inputs. It depends on the values staking on the network. Also optimal size is not a constant and it changes with time.<br />
+There is no formula to calculate the optimal size of inputs. It depends on the values staking on the network. Also. optimal size is not a constant and it changes with time.<br />
 Sharing experience about staking with other users may improve the staking experience.
 ### Start staking
 Unlock the wallet for staking:<br />
