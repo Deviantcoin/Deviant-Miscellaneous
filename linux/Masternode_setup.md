@@ -5,7 +5,7 @@
 ## Prerequisites
 1. The [preparation steps](/common/Preparation-steps-for-MN.md) are fullfilled (this guide inherited the same naming convention).
 2. A Linux VPS is mandatory for this setup. Ubuntu 16.04 is the recommended one. Successful setups have been reported also on Ubuntu 18.04.
-3. A SSH client for your Operating System. In this guide it will be [putty portable for win32](https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe). You can use Terminal on MacOS or gnome-terminal on Linux.
+3. A SSH client for your Operating System. In this guide, it will be [putty portable for win32](https://the.earth.li/~sgtatham/putty/latest/w32/putty.exe). You can use Terminal on MacOS or gnome-terminal on Linux.
 
 ## Establish connection
 Open your ssh client, then fill it with the parameters of your VPS (ip address and ssh port, default is 22).
