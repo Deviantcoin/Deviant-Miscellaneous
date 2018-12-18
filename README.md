@@ -1,6 +1,6 @@
 ![logo](images/DEV-logo.png)
 # Deviant-Miscellaneous
-Howto, setup guides and scripts
+How-to, Setup Guides and Scripts
 
 [How to swap zDEV balance](/common/zDEV-swap.md)<br />
 

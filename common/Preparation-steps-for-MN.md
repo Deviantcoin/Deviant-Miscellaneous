@@ -12,7 +12,7 @@ The Coin Control feature allows the user to select the input that must be used t
 <br />
 ![No Coin Control](/images/noCoinControl.png)
 <br />
-The option to enable the Coin Control feature is in the Gui Wallet:<br />
+The option to enable the Coin Control feature is in the GUI Wallet:<br />
 Settings -> Options -> Wallet<br />
 
 Settings Options | Wallet tab
@@ -32,14 +32,14 @@ Just click on Coin Control, which will open a new menu.
 In such menu, you're free to select the sending inputs, leaving untouched collateral and staking ones.
 
 ## Creating a Masternode Address
-Open the receiving address menu from your wallet.<br />
+Open the Receiving address menu from your wallet.<br />
 <p><img src="/images/rec-address.png" /></p>
 <br />
-Click the "New" push button, fill in the label field with a name, and Confirm with "OK" push button. The results will looks like the image below (MN label as example):
+Click the "New" push button, fill in the label field with a name, and Confirm with "OK" push button. The results will look like the image below (MN label as example):
 <br />
 <p><img src="/images/mn-label.png" /></p>
 <br />
-From now on the masternode address will be referenced by <br />
+From now on, the masternode address will be referenced by <br />
 `{MN ALIAS}`<br />
 
 ## Generating a Masternode Private Key
@@ -51,7 +51,7 @@ The Masternode private key is a unique key that identifies a Masternode. Such ke
 <br />
 <p><img src="/images/mn-genkey-out.png" /></p>
 <br />
-From now on the private key will be referenced by <br />
+From now on, the private key will be referenced by <br />
 `{MN PRIV KEY}`<br />
 
 ## Masternode collateral
@@ -65,7 +65,7 @@ Once the transaction reaches 6 confirmations, the "transaction hash" and the rel
 `masternode outputs`<br />
 <p><img src="/images/mn-output.png" /></p>
 <br /> 
-From now on the "transaction hash" key will be referenced by <br />
+From now on, the "transaction hash" key will be referenced by <br />
 `{MN TX-iD}`<br />
 the "output index" will be referenced by <br />
 `{TX-ID IDX}`<br />
