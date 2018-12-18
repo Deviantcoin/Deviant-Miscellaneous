@@ -99,7 +99,7 @@ The ones not found there, are explained in here.<br />
 Restart your wallet to apply new conf files.
 
 ## Start alias
-Go to the Masternode tab, select the line related to your Masternode, then righ-click -> start-alias<br />
+Go to the Masternode tab, select the line related to your Masternode, then right-click -> start-alias<br />
 
 ![mn-start-alias](/images/mn-start-alias.png)
 
