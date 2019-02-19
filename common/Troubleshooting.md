@@ -24,12 +24,12 @@ Once you've found the tree: <br />
 
 The issue should be solved.
 
-## QT wallet do not sync anymore
+## QT wallet does not sync anymore
 ### Issue
 You use Deviant wallet, QT or cli as well, on any supported Operating System. <br />
-Your wallet do not sync, not anymore. <br />
+Your wallet does not sync anymore. <br />
 In `Tools -> Peers list` there are a lot of banned peers. <br />
-In the debug.log file there are tens of lines like this one below:
+In the debug.log file, there are tens of lines like this one below:
 
 ```
 ERROR: AcceptBlock : prev block deb3a98644eba2810926365d5e8ae38ce773c5573b6855cccb2c0ec541a0349c is invalid, unable to add block 35df2e0f3cae13aba926369554762394a93837c6ddaffba08a3f4dfb328a5f15
@@ -46,11 +46,11 @@ Open the debug console (`Tools -> Debug console`) then execute:
 ```
 reconsiderblock deb3a98644eba2810926365d5e8ae38ce773c5573b6855cccb2c0ec541a0349c
 ```
-If you are running the cli wallet (or you have the parameter `server=1` in the QT wallet) you can execute:
+If you are running the cli wallet (or you have the parameter `server=1` in the QT wallet), you can execute:
 ```
 deviant-cli reconsiderblock deb3a98644eba2810926365d5e8ae38ce773c5573b6855cccb2c0ec541a0349c
 ```
-Under some circumstancies the above procedure will produce a new error:
+Under some circumstancies, the above procedure will produce a new error:
 ```
 ERROR: Load : cannot find checksum 2368503306
 ERROR: InitializeAccumulators: failed to reset to previous checkpoint
@@ -58,11 +58,11 @@ ERROR: CalculateAccumulatorCheckpoint: failed to initialize accumulators
 ERROR: ValidateAccumulatorCheckpoint : failed to calculate accumulator checkpoint
 ERROR: ConnectBlock: Failed to validate accumulator checkpoint for block=deb3a98644eba2810926365d5e8ae38ce773c5573b6855cccb2c0ec541a0349c height=341750
 ```
-You can try to restart your wallet with options:
+You can try to restart your wallet with the following options:
 ```
 -reindexaccumulators -reindexzerocoin
 ```
-If this procedure do not work, follo "Case two - Block not found".
+If this procedure does not work, follow "Case two - Block not found".
 #### Case two - Block not found
-If "prev block" is not found on the explorer, to solve this issue the only way is to sync the wallet from scratch.<br />
-You may try the `-reindex` option in Wallet repair menù (`Tools -> Wallet Repair`), it is less time expensive also do not guarantee the success.
+If "prev block" is not found on the explorer, to solve this issue, the only way is to sync the wallet from scratch.<br />
+You may try the `-reindex` option in the Wallet repair menu by clicking (`Tools -> Wallet Repair`). It is less time expensive, but doesn't guarantee the success of fixing your wallet issue.
