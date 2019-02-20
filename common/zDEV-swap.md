@@ -1,4 +1,9 @@
-# How to swap zDEV balance
+# How to swap zDEV balance (outdated)
+## Due date ended
+This section will be removed.
+Due date for zDEV unspentable has passed.<br />
+If you need any info you can write to `contact@deviantcoin.io`
+
 ## Disable zDEV
 Before swapping your zDEV, you must be sure no more new zDEV will be minted until you update the wallet (coming soon - latest tests are ongoing).<br />
 
